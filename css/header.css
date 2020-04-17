@@ -1,0 +1,71 @@
+.header-container {
+  background-color: var(--test);
+}
+
+.header-container a {
+  text-decoration: none;
+  color: var(--header-color-secondary);
+}
+
+.header-logo {
+  display: inline-block;
+  float: left;
+  text-align: center;
+}
+
+.header-nav {
+  text-align: right;
+}
+
+/*Make sure only list-items directly unver #navigation-list are inline-block,
+    as there are other list-items (vertical submenus)*/
+.header-nav-item {
+	display: inline-block;
+	font-weight: bold;
+	font-size: 14px;
+	padding: 8px;
+	line-height: 32px;
+  transition-duration: 0.4s;
+}
+
+.header-nav-item.nav-bars {
+  display: none;
+}
+
+.header-nav-item:not(.nav-bars):hover {
+	color: var(--header-color-primary);
+  background-color: var(--header-color-secondary);
+}
+
+.header-nav-item.current {
+	color: var(--header-color-primary);
+  background-color: var(--header-color-secondary);
+}
+
+.header-nav-item.current:hover {
+	color: var(--header-color-secondary);
+  background-color: var(--header-color-primary);
+}
+
+@media screen and (max-width: 600px) {
+  .header-nav {
+  	text-align: left;
+  }
+
+  .header-logo {
+    float: none;
+  }
+
+  .header-nav-item:not(.nav-bars) {
+    display: none;
+  }
+
+  .header-nav-item.nav-bars {
+    display: inline-block;
+  }
+
+  .header-nav.responsive .header-nav-item:not(.nav-bars) {
+    display: block;
+    line-height: 2em;
+  }
+}

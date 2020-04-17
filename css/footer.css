@@ -1,0 +1,53 @@
+.footer-container {
+	color: var(--footer-color-primary);
+	background-color: var(--footer-color-secondary);
+	padding: 1em;
+}
+
+.footer-section {
+	display: inline-block;
+}
+
+.footer-left {
+  width: 25%;
+}
+
+.footer-right {
+  width: 25%;
+}
+
+.footer-center {
+  width: 50%;
+  text-align: center;
+}
+
+.footer-social-media .fab {
+  color: var(--footer-color-primary);
+  background-color: white;
+  font-size: 1.5em;
+  text-align: center;
+  text-decoration: none;
+  margin: 0.2em;
+}
+
+.footer-social-media .fa-facebook-square {
+  color: var(--facebook);
+}
+
+.footer-social-media .fa-linkedin {
+  color: var(--linkedin);
+}
+
+.footer-social-media .fa-youtube {
+  color: var(--youtube);
+}
+
+.footer-nav {
+	padding: 0 0.5em;
+}
+
+.footer-nav a {
+	display: block;
+  color: var(--footer-color-primary);
+	text-decoration: none;
+}

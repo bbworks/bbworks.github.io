@@ -1,0 +1,45 @@
+/*CONVERSION*/
+/*1px = 3/4pt = 1/16em = 0.12671875vw*/
+
+/*-----------
+//  UNIVERSAL
+------------------------------*/
+
+:root {
+  --test: black;
+  --facebook: #3B5998;
+  --linkedin: #007bb5;
+  --youtube: #bb0000;
+  --header-color-primary: black;
+  --header-color-secondary: white;
+  --footer-color-primary: white;
+  --footer-color-secondary: rgb(50,50,50);
+}
+
+body, body * {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/*-----------
+//  UNIVERSAL CLASSES
+------------------------------*/
+
+.full {
+  width: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
+
+/*-----------
+//  BODY
+------------------------------*/
+
+.content {
+  padding-top: 0.5em;
+  padding-left: 0.5em;
+  padding-bottom: 1em;
+  padding-right: 0.5em;
+}

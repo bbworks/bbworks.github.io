@@ -1,0 +1,120 @@
+.slideshow {
+  /*Maintain a 16:9 aspect ratio, before 640x360
+    by using padding, which references width, not height.
+    This will, however, take up the entire "content" with
+    padding, rendering the container unusable.*/
+	padding-top: 56.25%;
+  position: relative;
+  overflow: hidden;
+  background-color: rgb(50,50,50);
+}
+
+.slide {
+	/*Now that parent container is sided with the aspect ratio,
+    set the position of the child container to absolute,
+    stretch it to the entire size of the parent container,
+    and remove all padding. This "resets" the container.*/
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transition: left 2s;
+  left: 534px;
+  color: white;
+  background-color: white;
+}
+
+.current-slide {
+  left: 0;
+  z-index: 2;
+}
+
+.previous-slide {
+  left: -534px;
+  z-index: 1;
+}
+
+.slide div {
+	position: absolute;
+}
+
+.slide img, .slide video {
+  width: 100%;
+}
+
+.slide img {
+  opacity: 0.8;
+}
+
+.slide video {
+  opacity: 0.5;
+}
+
+.slide-image-portrait {
+	position: relative;
+	top: -100%;
+}
+
+.slide-number {
+	display: block;
+}
+
+.slideshow-title-container {
+  /*Already "position: absolute", so,
+    inside of the slide, place the text as desired*/
+  width: 100%; /*Set to the entire width of the slide*/
+  height: 50%;
+  top: 0;
+}
+
+.slideshow-title {
+  bottom: 0;
+  font: 8vw sans-serif;
+  padding: 0 0.1em;
+}
+
+.slideshow-description-container {
+  /*Already "position: absolute", so,
+    inside of the slide, place the text as desired*/
+  width: 100%; /*Set to the entire width of the slide*/
+  height: 50%;
+  bottom: 0; /*Place the text at about the middle*/
+}
+
+.slideshow-description {
+  font: 2vw serif;
+  padding: 0.1em 1.2em;
+}
+
+.previousSlide, .nextSlide {
+	padding: 0.5em 1em;
+	position: absolute;
+	cursor: pointer;
+  top: 45%;
+  background-color: white;
+  opacity: 0.2;
+  z-index: 99;
+	transition: opacity 0.5s;
+}
+
+.nextSlide {
+	right: 0;
+}
+
+.previousSlide:hover, .nextSlide:hover {
+	opacity: 1;
+}
+
+.dots {
+  text-align: center;
+  padding: 0.5em;
+}
+
+.dot {
+	cursor: pointer;
+	color: gray;
+}
+
+.dot.active {
+  color: black;
+}
