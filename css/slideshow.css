@@ -24,6 +24,10 @@
   background-color: white;
 }
 
+.slide-image {
+	object-fit: cover;
+}
+
 .current-slide {
   left: 0;
   z-index: 2;
@@ -40,6 +44,7 @@
 
 .slide img, .slide video {
   width: 100%;
+	height: 100%;
 }
 
 .slide img {
@@ -48,11 +53,6 @@
 
 .slide video {
   opacity: 0.5;
-}
-
-.slide-image-portrait {
-	position: relative;
-	top: -100%;
 }
 
 .slide-number {
