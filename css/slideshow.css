@@ -18,7 +18,7 @@
   height: 100%;
   position: absolute;
   top: 0;
-  transition: left 2s;
+  transition: left 1s;
   left: 534px;
   color: white;
   background-color: white;
@@ -69,8 +69,8 @@
 
 .slideshow-title {
   bottom: 0;
-  font: 8vw sans-serif;
-  padding: 0 0.1em;
+  font-size: 2em;
+  padding: 0 0.25em;
 }
 
 .slideshow-description-container {
@@ -82,8 +82,8 @@
 }
 
 .slideshow-description {
-  font: 2vw serif;
-  padding: 0.1em 1.2em;
+  font-size: 1em;
+  padding: 0.1em 1em;
 }
 
 .previousSlide, .nextSlide {
