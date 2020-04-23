@@ -22,6 +22,7 @@
   left: 534px;
   color: white;
   background-color: white;
+	opacity: 0; /*hide slides until entering/exiting*/
 }
 
 .slide-image {

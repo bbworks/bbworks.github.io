@@ -23,10 +23,7 @@ const Slideshow = function(slideshowId) {
     //Hide or show each slide
     for (let i = 0; i < slides.length; i++) {
       const slide = slides[i];
-      const display = (i === _index || i === currentIndex ? "block" : "none");
-      const marginLeft = (i === _index ? slideSize+"px" : (i === currentIndex ? "-"+slideSize+"px" : 0));
-      const transition = (i === _index || i === currentIndex ? "margin-left 2s" : "none");
-      const active = i === _index;
+      const opacity = (i === _index || i === currentIndex ? 1 : 0);
       const func = (i === _index ? "add" : "remove");
 
       if (i === _index) {
@@ -42,7 +39,8 @@ const Slideshow = function(slideshowId) {
           slide.classList.remove("previous-slide");
         }
       }
-      dots[i].classList[func]("active");
+      slide.style.opacity = opacity; //Make older slides disappear
+      dots[i].classList[func]("active"); //Make the current dot darken
     }
   };
 
