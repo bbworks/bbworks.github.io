@@ -1,5 +1,5 @@
 .header-container {
-  background-color: var(--test);
+  background-color: var(--header-color-primary);
 }
 
 .header-container a {
@@ -11,6 +11,10 @@
   display: inline-block;
   float: left;
   text-align: center;
+}
+
+.header-logo h1 {
+  font-family: serif;
 }
 
 .header-nav {

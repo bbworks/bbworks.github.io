@@ -1,7 +1,7 @@
 .footer-container {
 	color: var(--footer-color-primary);
 	background-color: var(--footer-color-secondary);
-	padding: 1em;
+	padding: 0.5em 2em;
 }
 
 .footer-section {
@@ -21,6 +21,14 @@
   text-align: center;
 }
 
+.footer-copyright {
+  padding-top: 1em;
+}
+
+.footer-social-media {
+  padding-top: 1.5em;
+}
+
 .footer-social-media .fab {
   color: var(--footer-color-primary);
   background-color: white;
@@ -31,15 +39,15 @@
 }
 
 .footer-social-media .fa-facebook-square {
-  color: var(--facebook);
+  color: #3B5998;
 }
 
 .footer-social-media .fa-linkedin {
-  color: var(--linkedin);
+  color: #007bb5;
 }
 
 .footer-social-media .fa-youtube {
-  color: var(--youtube);
+  color: #bb0000;
 }
 
 .footer-nav {
@@ -50,4 +58,15 @@
 	display: block;
   color: var(--footer-color-primary);
 	text-decoration: none;
+}
+
+.footer-nav a:hover {
+	transition: color 0.25s;
+	color: gray;
+}
+
+
+.footer-social-media a:hover {
+	transition: background-color 0.25s;
+	background-color: lightgray;
 }

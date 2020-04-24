@@ -3,9 +3,8 @@ const Slideshow = function(slideshowId) {
   const slideTimer = 5000;
   let timerId;
 
-  const slideshow = document.getElementById(slideshowId);
-  const slides = document.getElementsByClassName("slide");
-  const dots = document.getElementsByClassName("dot");
+  const slides = document.getElementsByClassName("slide") || null;
+  const dots = document.getElementsByClassName("dot") || null;
 
   const resetTimer = function() {
     if (timerId !== -1) {
@@ -44,6 +43,16 @@ const Slideshow = function(slideshowId) {
     }
   };
 
+  this.init = function() {
+    if (document.getElementById(slideshowId)) {
+      //Display our slideshow
+      renderSlideshow.call(this, slideIndex);
+
+      //Set the timer
+      timerId = window.setInterval(this.nextSlide.bind(this, 1), slideTimer);
+    }
+  };
+
   this.nextSlide = function(index, reset) {
     renderSlideshow.call(this, slideIndex + index);
     if (reset) {
@@ -59,10 +68,7 @@ const Slideshow = function(slideshowId) {
   this.stop = function() {
     window.clearInterval(timerId);
   };
-
-  //Display our slideshow
-  renderSlideshow.call(this, slideIndex);
-
-  //Set the timer
-  timerId = window.setInterval(this.nextSlide.bind(this, 1), slideTimer);
 };
+
+const slideshow = new Slideshow("slideshow");
+slideshow.init();

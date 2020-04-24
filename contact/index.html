@@ -34,19 +34,31 @@
     <main class="full">
       <h2 class="page-title">Contact</h2>
       <div class="content">
-        <section class="module">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <section class="section contact-section full float-container">
+          <img class="contact-image" src="/assets/466410_4783174939615_1618313192_o.jpg"/>
+        </section>
+        <section class="section contact-section full float-container">
+					<div class="contact-email">
+            <i class="fa fa-envelope-square"></i>
+            <a id="toEmail" href="mailto:bradleybiera@hotmail.com" target="_blank">bradleybiera@hotmail.com</a>
+          </div>
+        </section>
+        <section class="section contact-section full float-container">
+          <form target="_blank">
+            <label class="contact-form-label" for="contact-form-subject">Subject</label>
+            <input id="contact-form-subject" name="subject" class="contact-form-component contact-form-input" type="text" tabindex="1"></input>
+            <label class="contact-form-label" for="contact-form-body">Body</label>
+            <textarea id="contact-form-body" name="body" class="contact-form-component contact-form-textarea" tabindex="2"></textarea>
+            <button class="contact-form-button" href="javascript.void(0);" onclick="contactForm.sendEmail();">Send in Mail</button>
+          </form>
         </section>
       </div>
     </main>
-    <footer class="footer-container full">
-  		<div class="footer-section footer-left footer-copyright">
+    <footer class="footer-container full float-container">
+  		<div class="footer-section footer-left footer-copyright float-child">
         &copy;2020 Bradley Biera
       </div
-  		><div class="footer-section footer-center footer-social-media">
+  		><div class="footer-section footer-center footer-social-media float-child">
   			<a class="fab fa-facebook-square"
 			    href="https://www.facebook.com/bradley.biera"
 			    target="_blank"
@@ -63,7 +75,7 @@
 			    title="BradleyBieraMusic | YouTube">
 				</a>
   		</div
-  		><nav class="footer-section footer-right footer-nav">
+  		><nav class="footer-section footer-right footer-nav float-child">
   			<a href="/">Home</a>
   			<a href="/about">About</a>
         <a href="/music">Music</a>
@@ -73,5 +85,6 @@
     </footer>
     <script src="/js/slideshow.js"></script>
     <script src="/js/toggleNavBars.js"></script>
+		<script src="/js/contactForm.js"></script>
   </body>
 </html>

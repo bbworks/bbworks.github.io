@@ -6,10 +6,6 @@
 ------------------------------*/
 
 :root {
-  --test: black;
-  --facebook: #3B5998;
-  --linkedin: #007bb5;
-  --youtube: #bb0000;
   --header-color-primary: black;
   --header-color-secondary: white;
   --footer-color-primary: white;
@@ -19,6 +15,7 @@
 body, body * {
   margin: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 /*-----------
@@ -31,6 +28,14 @@ body, body * {
 
 .full-height {
   height: 100%;
+}
+
+.float-container {
+  overflow-y: hidden; /*forces parent containers to take height of FLOATING children ;D*/
+}
+
+.float-child {
+  float: left;
 }
 
 /*-----------
@@ -49,8 +54,12 @@ body, body * {
   padding-left: 1em;
 }
 
-.module {
-  padding: 0.5em 0;
+.content p {
+  font-size: 0.9em;
+}
+
+.section {
+  margin: 0.5em 0;
 }
 
 hr {
@@ -112,8 +121,6 @@ hr {
 ------------------------------*/
 
 .music-section {
-  margin: 0.5em 0em;
-  overflow-y: hidden; /*forces parent containers to take height of FLOATING children ;D*/
   word-wrap: break-word;
 }
 
@@ -176,7 +183,6 @@ hr {
 ------------------------------*/
 
 .projects-section {
-  overflow-y: hidden; /*forces parent containers to take height of FLOATING children ;D*/
   word-wrap: break-word;
 }
 
@@ -196,4 +202,66 @@ hr {
   margin-top: 1em;
   margin-bottom: 0.5em;
   font-size: 0.7em;
+}
+
+
+/*-----------
+//  CONTACT
+------------------------------*/
+
+.contact-image {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.contact-email {
+  text-align: right;
+  padding-right: 1em;
+}
+
+.contact-email a {
+  text-decoration: none;
+  color: darkred;
+  font-weight: bold;
+}
+
+.contact-email i {
+  color: rgb(0,111,192);
+}
+
+.contact-form-component {
+  width: 100%;
+  padding: 0.5em 1em;
+  color: gray;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  border-radius: 0.25em;
+
+}
+
+.contact-form-label {
+  font-weight: bold;
+  color: gray;
+}
+
+.contact-form-input {
+  font-size: 1em;
+}
+
+.contact-form-textarea {
+  resize: none;
+  height: 6em;
+}
+
+.contact-form-button {
+  background-color: darkgray;
+  padding: 0.25em 1em;
+  border: none;
+  border-radius: 0.5em;
+}
+
+.contact-form-button:hover {
+  background-color: gray;
+  transition: background-color 0.25s;
 }

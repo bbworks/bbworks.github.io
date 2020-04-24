@@ -153,25 +153,25 @@
             </div>
           </div>
 
-          <a class="fas fa-angle-left previousSlide" onclick="page.slideshow.nextSlide(-1, true)"></a>
-          <a class="fas fa-angle-right nextSlide" onclick="page.slideshow.nextSlide(1, true)"></a>
+          <a class="fas fa-angle-left previousSlide" onclick="slideshow.nextSlide(-1, true)"></a>
+          <a class="fas fa-angle-right nextSlide" onclick="slideshow.nextSlide(1, true)"></a>
         </div>
         <div class="dots">
-        	<span class="fas fa-circle dot" onclick="page.slideshow.setSlide(0);"></span>
-          <span class="fas fa-circle dot" onclick="page.slideshow.setSlide(1);"></span>
-          <span class="fas fa-circle dot" onclick="page.slideshow.setSlide(2);"></span>
-          <span class="fas fa-circle dot" onclick="page.slideshow.setSlide(3);"></span>
-          <span class="fas fa-circle dot" onclick="page.slideshow.setSlide(4);"></span>
-          <span class="fas fa-circle dot" onclick="page.slideshow.setSlide(5);"></span>
-          <span class="fas fa-circle dot" onclick="page.slideshow.setSlide(6);"></span>
+        	<span class="fas fa-circle dot" onclick="slideshow.setSlide(0);"></span>
+          <span class="fas fa-circle dot" onclick="slideshow.setSlide(1);"></span>
+          <span class="fas fa-circle dot" onclick="slideshow.setSlide(2);"></span>
+          <span class="fas fa-circle dot" onclick="slideshow.setSlide(3);"></span>
+          <span class="fas fa-circle dot" onclick="slideshow.setSlide(4);"></span>
+          <span class="fas fa-circle dot" onclick="slideshow.setSlide(5);"></span>
+          <span class="fas fa-circle dot" onclick="slideshow.setSlide(6);"></span>
         </div>
       </section>
       <div class="content">
-        <section class="module">
+        <section class="section home-section">
           <h3 class="summary summary-line">Music // Web Development // MS SQL</h3>
           <h3 class="summary summary-subline">Husband~Father~Disciple✞</h3>
         </section>
-        <section class="module">
+        <section class="section home-section">
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
@@ -184,11 +184,11 @@
         </section>
       </div>
     </main>
-    <footer class="footer-container full">
-  		<div class="footer-section footer-left footer-copyright">
+    <footer class="footer-container full float-container">
+  		<div class="footer-section footer-left footer-copyright float-child">
         &copy;2020 Bradley Biera
       </div
-  		><div class="footer-section footer-center footer-social-media">
+  		><div class="footer-section footer-center footer-social-media float-child">
   			<a class="fab fa-facebook-square"
 			    href="https://www.facebook.com/bradley.biera"
 			    target="_blank"
@@ -205,7 +205,7 @@
 			    title="BradleyBieraMusic | YouTube">
 				</a>
   		</div
-  		><nav class="footer-section footer-right footer-nav">
+  		><nav class="footer-section footer-right footer-nav float-child">
   			<a href="/">Home</a>
   			<a href="/about">About</a>
         <a href="/music">Music</a>
@@ -215,13 +215,6 @@
     </footer>
     <script src="/js/slideshow.js"></script>
     <script src="/js/toggleNavBars.js"></script>
-    <script>
-      window.addEventListener("load",
-        function(event) {
-          window.page = {};
-          page.slideshow = new Slideshow("slideshow");
-        }
-      );
-    </script>
+		<script src="/js/contactForm.js"></script>
   </body>
 </html>
