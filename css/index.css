@@ -6,16 +6,25 @@
 ------------------------------*/
 
 :root {
-  --header-color-primary: black;
-  --header-color-secondary: white;
-  --footer-color-primary: white;
+  --header-color-primary: white;
+  --header-color-secondary: black;
+  --footer-color-primary: lightgray;
   --footer-color-secondary: rgb(50,50,50);
+}
+
+body {
+  overflow-x: hidden;
 }
 
 body, body * {
   margin: 0;
   box-sizing: border-box;
   font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: darkred;
 }
 
 /*-----------
@@ -36,6 +45,17 @@ body, body * {
 
 .float-child {
   float: left;
+}
+
+.fade-in-on-scroll-listener {
+  opacity: 0;
+  transition: 1s 0.2s;
+  transform: translateY(20px);
+}
+
+.fade-in-on-scroll {
+  transform: none;
+  opacity: 1;
 }
 
 /*-----------
@@ -187,7 +207,6 @@ hr {
 }
 
 .project-image {
-  float: left;
   width: 60%;
   margin-right: 1em;
   margin-bottom: 0.5em;
@@ -251,11 +270,14 @@ hr {
 
 .contact-form-textarea {
   resize: none;
-  height: 6em;
+  height: 9em;
 }
 
 .contact-form-button {
+  width: 9em;
+  height: 2.5em;
   background-color: darkgray;
+  font-size: 1em;
   padding: 0.25em 1em;
   border: none;
   border-radius: 0.5em;
