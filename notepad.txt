@@ -1,0 +1,36 @@
+Notepad
+
+##OBJECTIVE
+  X make mobile nav toggle button change between hamburger and X
+  X okay, let's develop a color scheme for this thing...
+    Accent color:      #8b0000 //rgb(139,0,0) "darkred" //##3774ce
+    Background color:  #f5f5f5 //rgb(245,245,245)
+    Grayscale accent:  #808080 //rgb(128,128,128) "gray"
+    Light foreground:  #323232 //rgb(50,50,50)
+    Light background:  #ffffff //rgb(255,255,255) "white"
+    Dark foreground:   #d3d3d3 //rgb(211,211,211) "lightgray"
+    Dark background:   #323232 //rgb(50,50,50)
+      * use accent where it counts--logo, CTAs, headers?, nav links?
+  X dynamic slideshow HTML built in JS?
+    * dynamic slideshow
+    * dynamic header
+    * dynamic footer
+  X update title to Front-End Developer (HTML5/CSS3/JS logos?)
+  X add reCAPTCHA to contact form?
+    * done through Formspree.io
+  _ improve Javascript modules so their entirely modularized and independent of HTML/CSS?
+    * make slideshow.js only rely on itself--create classes within slideshow.js?
+    * perhaps even combine all into one file, under a page = {} singleton?
+  X fix slideshow so that it scrolls from a variable length (currently hard-coded to 534px)
+  X CTA (STUDY OTHER PORTFOLIOS)
+    * home
+      ^ look at Linkedin, portfolio, GitHub
+    * about
+      ^ learn more about who I am
+    * music
+      ^ get views on videos
+    * projects
+      ^ rename "portfolio"?
+      ^ look at my projects
+    * contact
+      ^ shoot me an email

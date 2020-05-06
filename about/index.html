@@ -15,22 +15,11 @@
     <link type="text/css" rel="stylesheet" href="/css/footer.css">
     <link type="text/css" rel="stylesheet" href="/css/slideshow.css">
 		<link type="image/ico" rel="icon" href="/assets/favicon.ico">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4849833081.js" crossorigin="anonymous"></script>
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
   </head>
   <body>
-    <header class="header-container full">
-      <nav class="header-nav">
-        <a class="header-logo" href="/"><h1>Bradley Biera</h1></a>
-        <div class="header-nav-container">
-          <a class="header-nav-item" href="/">Home</a
-          ><a class="header-nav-item" href="/about">About</a
-          ><a class="header-nav-item" href="/music">Music</a
-          ><a class="header-nav-item" href="/projects">Projects</a
-          ><a class="header-nav-item" href="/contact">Contact</a>
-        </div
-        ><a class="header-nav-item nav-bars fa fa-bars" href="javascript:void(0);" onclick="toggleNavBars(&quot;header-nav&quot;)"></a>
-      </nav>
-    </header>
+    <header></header>
     <main class="full">
       <h2 class="page-title">About</h2>
       <div class="content">
@@ -42,46 +31,33 @@
           </div>
         </section>
         <section class="section">
-          <p>Hello!</p>
+          <div class="about-section-name-container">
+            <h3 class="about-section-name">Bradley Biera</h3>
+            <h4 class="about-section-title">Author/Developer of site</h4>
+          </div>
+          <p>Currently a database administrator, I am also pursuing a passion for web development.
+            Following graduating from Univeristy of South Carolina Upstate in 2016,
+            I have spent the last three years diving head-first into the field of Computer Science,
+            learning multiple technologies and developing skills in multiple fields.</p>
           <br />
-          <p>My name is Bradley Biera, and this is my portfolio.
-            Through this I hope to capture my skills and passions, encompassed into a single entity, also created by my hand.
-            I hope you enjoy your look around!</p>
+          <p>As a Cloud Database Administrator, I have worked extensively with Microsoft SQL Server,
+            learning many (and one day, all) facets of relational database management,
+            from the high-level system implementation designs down to the internals of SQL Server and how it works.</p>
+          <br />
+          <p>I am located in Upstate South Carolina, United States.
+            I am a husband, a father of 2 beautiful children,
+            and a lover-follower-disciple of Jesus Christ.
+            My hobbies include playing video games and writing/recording/producing music.</p>
         </section>
       </div>
     </main>
-    <footer class="footer-container full float-container">
-  		<div class="footer-section footer-copyright float-child">
-        &copy;2020 Bradley Biera
-      </div
-  		><div class="footer-section footer-social-media float-child">
-  			<a class="fab fa-facebook-square"
-			    href="https://www.facebook.com/bradley.biera"
-			    target="_blank"
-			    title="Bradley Biera | Facebook">
-        </a>
-				<a class="fab fa-linkedin"
-			    href="http://www.linkedin.com/in/bradley-biera-059674135/"
-			    target="_blank"
-			    title="Bradley Biera | LinkedIn">
-        </a>
-				<a class="fab fa-youtube"
-			    href="https://www.youtube.com/user/BradleyBieraMusic"
-			    target="_blank"
-			    title="BradleyBieraMusic | YouTube">
-				</a>
-  		</div
-  		><nav class="footer-section footer-nav float-child">
-  			<a href="/">Home</a>
-  			<a href="/about">About</a>
-        <a href="/music">Music</a>
-  			<a href="/projects">Projects</a>
-  			<a href="/contact">Contact</a>
-  		</nav>
-    </footer>
+    <footer></footer>
+    <script src="/js/header.js"></script>
+    <script src="/js/footer.js"></script>
     <script src="/js/slideshow.js"></script>
-    <script src="/js/toggleNavBars.js"></script>
+    <script src="/js/toggleMobileNav.js"></script>
 		<script src="/js/contactForm.js"></script>
 		<script src="/js/fade.js"></script>
+		<script src="/js/currentPageDetector.js"></script>
   </body>
 </html>

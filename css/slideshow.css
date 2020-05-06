@@ -19,7 +19,7 @@
   position: absolute;
   top: 0;
   transition: left 1s;
-  left: 534px;
+  left: 500px; /*set a default width of 500px (will be updated by slideshow.js)*/
   color: white;
   background-color: white;
 	opacity: 0; /*hide slides until entering/exiting*/
@@ -35,7 +35,7 @@
 }
 
 .previous-slide {
-  left: -534px;
+  left: -500px;  /*set a default width of 500px (will be updated by slideshow.js)*/
   z-index: 1;
 }
 
@@ -87,35 +87,50 @@
   padding: 0.1em 1em;
 }
 
-.previousSlide, .nextSlide {
+.slide-left-button, .slide-right-button {
 	padding: 0.5em 1em;
 	position: absolute;
 	cursor: pointer;
   top: 45%;
+	color: black;
   background-color: white;
   opacity: 0.2;
-  z-index: 99;
-	transition: opacity 0.5s;
+  z-index: 3;
+	transition: opacity 0.3s;
 }
 
-.nextSlide {
+.slide-right-button {
 	right: 0;
 }
 
-.previousSlide:hover, .nextSlide:hover {
+.slide-left-button:hover, .slide-right-button:hover {
 	opacity: 1;
 }
 
-.dots {
-  text-align: center;
+.slideshow-dot-container {
+  transition: opacity 0.3s;
+	opacity: 0.3;
+	position: absolute;
+	bottom: 0;
+	z-index: 10;
+	text-align: center;
   padding: 0.5em;
+	width: 100%;
 }
 
-.dot {
+.slideshow-dot-container:hover {
+  opacity: 0.8;
+}
+
+.slideshow-dot {
 	cursor: pointer;
+	color: white;
+}
+
+.slideshow-dot:hover {
 	color: gray;
 }
 
-.dot.active {
-  color: black;
+.slideshow-dot.active {
+  color: gray;
 }

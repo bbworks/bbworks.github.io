@@ -1,6 +1,6 @@
 .footer-container {
-	color: var(--footer-color-primary);
-	background-color: var(--footer-color-secondary);
+	color: var(--dark-foreground-color);
+	background-color: var(--dark-background-color);
 	padding: 0.5em 2em;
 }
 

@@ -15,22 +15,11 @@
     <link type="text/css" rel="stylesheet" href="/css/footer.css">
     <link type="text/css" rel="stylesheet" href="/css/slideshow.css">
 		<link type="image/ico" rel="icon" href="/assets/favicon.ico">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/4849833081.js" crossorigin="anonymous"></script>
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
   </head>
   <body>
-    <header class="header-container full">
-      <nav class="header-nav">
-        <a class="header-logo" href="/"><h1>Bradley Biera</h1></a>
-        <div class="header-nav-container">
-          <a class="header-nav-item" href="/">Home</a
-          ><a class="header-nav-item" href="/about">About</a
-          ><a class="header-nav-item" href="/music">Music</a
-          ><a class="header-nav-item" href="/projects">Projects</a
-          ><a class="header-nav-item" href="/contact">Contact</a>
-        </div
-        ><a class="header-nav-item nav-bars fa fa-bars" href="javascript:void(0);" onclick="toggleNavBars(&quot;header-nav&quot;)"></a>
-      </nav>
-    </header>
+    <header></header>
     <main class="full">
       <h2 class="page-title">Contact</h2>
       <div class="content">
@@ -38,54 +27,28 @@
           <img class="contact-image" src="/assets/466410_4783174939615_1618313192_o.jpg"/>
         </section>
         <section class="section contact-section full float-container">
-					<div class="contact-email">
-            <i class="fa fa-envelope-square"></i>
-            <a id="toEmail" href="mailto:bradleybiera@hotmail.com" target="_blank">bradleybiera@hotmail.com</a>
-          </div>
-        </section>
-        <section class="section contact-section full float-container">
-          <form target="_blank">
-            <label class="contact-form-label" for="contact-form-subject">Subject</label>
-            <input id="contact-form-subject" name="subject" class="contact-form-component contact-form-input" type="text" tabindex="1"></input>
+          <form class="contact-form" action="https://formspree.io/xgenedkv" method="POST">
+            <label class="contact-form-label" for="contact-form-name">Name</label>
+            <input id="contact-form-name" name="name" class="contact-form-component contact-form-input" type="text" tabindex="1"></input>
+            <label class="contact-form-label" for="contact-form-replyTo">Email</label>
+            <input id="contact-form-replyTo" name="_replyto" class="contact-form-component contact-form-input" type="email" tabindex="2"></input>
             <label class="contact-form-label" for="contact-form-body">Body</label>
-            <textarea id="contact-form-body" name="body" class="contact-form-component contact-form-textarea" tabindex="2"></textarea>
-            <button class="contact-form-button" href="javascript.void(0);" onclick="contactForm.sendEmail();">Send in Mail</button>
+            <textarea id="contact-form-body" name="body" class="contact-form-component contact-form-textarea" tabindex="4"></textarea>
+            <input type="submit" class="contact-form-button" value="Send" onclick="contactForm.sendEmail();"></input>
+            <!-- <input type="hidden" name="_subject" value="bbworks.github.io"></input> -->
+            <!-- <input type="hidden" name="_next" value="/thankYou.html"></input> -->
+            <input type="text" name="_gotcha" style="display:none" />
           </form>
         </section>
       </div>
     </main>
-    <footer class="footer-container full float-container">
-  		<div class="footer-section footer-copyright float-child">
-        &copy;2020 Bradley Biera
-      </div
-  		><div class="footer-section footer-social-media float-child">
-  			<a class="fab fa-facebook-square"
-			    href="https://www.facebook.com/bradley.biera"
-			    target="_blank"
-			    title="Bradley Biera | Facebook">
-        </a>
-				<a class="fab fa-linkedin"
-			    href="http://www.linkedin.com/in/bradley-biera-059674135/"
-			    target="_blank"
-			    title="Bradley Biera | LinkedIn">
-        </a>
-				<a class="fab fa-youtube"
-			    href="https://www.youtube.com/user/BradleyBieraMusic"
-			    target="_blank"
-			    title="BradleyBieraMusic | YouTube">
-				</a>
-  		</div
-  		><nav class="footer-section footer-nav float-child">
-  			<a href="/">Home</a>
-  			<a href="/about">About</a>
-        <a href="/music">Music</a>
-  			<a href="/projects">Projects</a>
-  			<a href="/contact">Contact</a>
-  		</nav>
-    </footer>
+    <footer></footer>
+    <script src="/js/header.js"></script>
+    <script src="/js/footer.js"></script>
     <script src="/js/slideshow.js"></script>
-    <script src="/js/toggleNavBars.js"></script>
+    <script src="/js/toggleMobileNav.js"></script>
 		<script src="/js/contactForm.js"></script>
 		<script src="/js/fade.js"></script>
+		<script src="/js/currentPageDetector.js"></script>
   </body>
 </html>
