@@ -10,7 +10,6 @@
 }
 
 .header-nav {
-  position: relative; /*This stops the side-scrolling .header-nav-container from causing us overflow-x issues*/
   overflow-x: hidden;
 }
 
@@ -67,6 +66,7 @@
   }
 
   .header-nav-container {
+    display: none;
   	text-align: left;
     transition: 0.2s;
     position: absolute;

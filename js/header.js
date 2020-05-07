@@ -10,7 +10,7 @@ const Header = (function() {
           '\t\t\t><a class="header-nav-item" href="/portfolio/">Portfolio</a\r\n' +
           '\t\t\t><a class="header-nav-item" href="/contact/">Contact</a>\r\n' +
         '\t\t</div\r\n' +
-        '\t\t><a class="header-nav-item mobile-nav-toggle fa fa-bars" href="javascript:void(0);" onclick="toggleMobileNav(&quot;header-nav&quot;,&quot;mobile-nav-toggle&quot;)"></a>\r\n' +
+        '\t\t><a class="header-nav-item mobile-nav-toggle fa fa-bars" href="javascript:void(0);" onclick="toggleMobileNav(&quot;header-nav&quot;,&quot;header-nav-container&quot;,&quot;mobile-nav-toggle&quot;)"></a>\r\n' +
       '\t</nav>\r\n' +
     '</header>';
 

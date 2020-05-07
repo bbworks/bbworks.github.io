@@ -1,16 +1,31 @@
-const toggleMobileNav = function(navClass, navToggleClass) {
+const toggleMobileNav = function(navClass, navContainerClass, navToggleClass) {
   //Get DOM elements
   const nav = document.getElementsByClassName(navClass)[0];
+  const navContainer = document.getElementsByClassName(navContainerClass)[0];
   const navToggle = document.getElementsByClassName(navToggleClass)[0];
   const navResponsiveClass = "responsive";
   const mobileNavToggleOpenIconClass = "fas fa-times";
   const mobileNavToggleClosedIconClass = "fa fa-bars";
 
   //Function to add the responsive class to nav element
-  const addResponsiveClassToNav = function(navElement, responsiveClass) {
-    const _navClass = responsiveClass;
-    const func = (navElement.classList.contains(_navClass) ? "remove" : "add");
-    navElement.classList[func](_navClass);
+  const addResponsiveClassToNav = function(navElement, navContainerElement, responsiveClass) {
+    const isResponsive = navElement.classList.contains(responsiveClass);
+    let changeDisplay = function() {
+      navContainerElement.style.display = (!isResponsive ? "block" : "none");
+    };
+    let updateClass = function() {
+      const func = (isResponsive ? "remove" : "add");
+      navElement.classList[func](responsiveClass);
+    };
+    if (!isResponsive) {
+      //add .responsive
+      changeDisplay.apply(this);
+      window.setTimeout(updateClass.bind(this), 50); //add the smallest delay so we can still scroll in/out and display/not display and have our transitions work
+    } else {
+      //remove .responsive
+      updateClass.apply(this);
+      window.setTimeout(changeDisplay.bind(this), 50); //add the smallest delay so we can still scroll in/out and display/not display and have our transitions work
+    }
   };
 
   //Function to toggle theh mobile nav icon on mobile nav open/close
@@ -37,6 +52,6 @@ const toggleMobileNav = function(navClass, navToggleClass) {
     newClassName.split(" ").forEach(c=>navToggle.classList.add(c));
   };
 
-  addResponsiveClassToNav.call(this, nav, navResponsiveClass);
+  addResponsiveClassToNav.call(this, nav, navContainer, navResponsiveClass);
   toggleMobileNavIcon.call(this, navToggle, mobileNavToggleClosedIconClass, mobileNavToggleOpenIconClass);
-}
+};
