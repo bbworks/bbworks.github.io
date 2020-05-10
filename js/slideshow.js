@@ -9,7 +9,7 @@ const Slideshow = function(slideshowId) {
 
   const slideshowData = [
     {
-    	src: "assets/hero/1_IMG_5647.JPG",
+    	src: "assets/hero/1_IMG_5647.jpg",
       style: null,
     	caption: "Married: ✔️"
     },
@@ -19,18 +19,18 @@ const Slideshow = function(slideshowId) {
     	caption: "*snuggle snuggle*"
     },
     {
-    	src: "assets/hero/3_109A0503.jpg",
+    	src: "assets/hero/3_109A0482.jpg",
       style: "object-position: 50% 40%;",
     	caption: "Marriage swag"
     },
     {
-    	src: "assets/hero/4_IMG_0185.jpg",
-      style: null,
+    	src: "assets/hero/4_109A0403.jpg",
+      style: "object-position: 50% 50%;",
     	caption: "*kissy kissy*"
     },
     {
-    	src: "assets/hero/5_20190726_225717000_iOS.jpg",
-      style: "object-position: 50% 60%;",
+    	src: "assets/hero/5_IMG_0035.jpg",
+      style: null,
     	caption: "Engagement | Chastain Park, Atlanta, Georgia."
     },
     {
