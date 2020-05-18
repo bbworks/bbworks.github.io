@@ -1,6 +1,16 @@
 Notepad
 
 ##OBJECTIVE
+  _ new tech?
+    * Sass
+    * Modernizr
+    * Google font APIs
+    * Google Analytics?
+    * jQuery
+  _ stuff to add
+    * <meta name="keywords" content="this, that, theother">
+    * <meta name="author" content="Bradley Biera">
+  _ flip-down nav?
   X make mobile nav toggle button change between hamburger and X
   X okay, let's develop a color scheme for this thing...
     Accent color:      #8b0000 //rgb(139,0,0) "darkred" //##3774ce

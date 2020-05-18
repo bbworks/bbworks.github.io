@@ -109,17 +109,6 @@ const Slideshow = function(slideshowId) {
       return false;
   };
 
-  const updateCssClasses = function() {
-    //Always query for it each time (in case it changes size--we won't have stale data)
-    const slideWidth = document.getElementsByClassName("slide")[0].getBoundingClientRect().width + "px";
-
-    //Update the slides' left position to the full width so they seemlessly slide in from the right
-    getCssRule(".slide").style.left = slideWidth;
-
-    //Update the previous slide's left position to the full width so they seemlessly slide out to the left
-    getCssRule(".previous-slide").style.left = "-"+slideWidth;
-  };
-
   const resetTimer = function() {
     if (timerId !== -1) {
       window.clearInterval(timerId);
@@ -131,9 +120,6 @@ const Slideshow = function(slideshowId) {
     const currentIndex = slideIndex;
     const _index = (index + slides.length) % slides.length; //to assure we dont' get a negative
     slideIndex = _index;
-
-    //Update the CSS classes with the correct slide width (in case it changed)
-    updateCssClasses.call(this);
 
     //Hide or show each slide
     for (let i = 0; i < slides.length; i++) {

@@ -10,8 +10,8 @@ const Fade = function() {
     let elements = document.getElementsByClassName(CLASSNAME.fadeInOnScrollListener);
     for(let i = 0; i < elements.length; i++) {
       let element = elements[i];
-      const windowTop = window.pageYOffset || document.documentElement.scrollTop;
-      const windowLeft = window.pageXOffset || document.documentElement.scrollLeft;
+      const windowTop = window.pageYOffset;
+      const windowLeft = window.pageXOffset;
       const windowBottom = windowTop + window.innerHeight;
       const windowRight = windowLeft + window.innerWidth;
       const elementRect = element.getBoundingClientRect();
@@ -19,9 +19,9 @@ const Fade = function() {
       const elementLeft = windowLeft + elementRect.x;
       const elementBottom = elementTop + elementRect.height;
       const elementRight = elementLeft + elementRect.width;
-      const isVisible = (windowTop < elementBottom + SCROLL_BUFFER) &&
+      const isVisible = (windowTop < elementBottom - SCROLL_BUFFER) &&
         (windowBottom > elementTop + SCROLL_BUFFER) &&
-        (windowLeft < elementRight + SCROLL_BUFFER) &&
+        (windowLeft < elementRight - SCROLL_BUFFER) &&
         (windowRight > elementLeft + SCROLL_BUFFER);
       if (isVisible) {
         element.classList.add(CLASSNAME.fadeInOnScroll);
@@ -33,7 +33,7 @@ const Fade = function() {
 
   this.init = function() {
     if (document.getElementsByClassName(CLASSNAME.fadeInOnScrollListener)) {
-      window.addEventListener("scroll", fadeInOnScroll);
+      window.addEventListener("scroll", fadeInOnScroll.bind(this));
     }
   };
 };

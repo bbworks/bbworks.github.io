@@ -19,7 +19,7 @@
   position: absolute;
   top: 0;
   transition: left 1s;
-  left: 500px; /*set a default width of 500px (will be updated by slideshow.js)*/
+  left: 100%;
   color: white;
   background-color: white;
 	opacity: 0; /*hide slides until entering/exiting*/
@@ -35,7 +35,7 @@
 }
 
 .previous-slide {
-  left: -500px;  /*set a default width of 500px (will be updated by slideshow.js)*/
+  left: -100%;
   z-index: 1;
 }
 
