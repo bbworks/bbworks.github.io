@@ -1,6 +1,7 @@
 Notepad
 
 ##OBJECTIVE
+  _ full screen landing page hero slideshow?
   _ new tech?
     * Sass
     * Modernizr
@@ -8,6 +9,7 @@ Notepad
     * Google Analytics?
     * jQuery
   _ stuff to add
+    * <html class="no-js">
     * <meta name="keywords" content="this, that, theother">
     * <meta name="author" content="Bradley Biera">
   _ flip-down nav?

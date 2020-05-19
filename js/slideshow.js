@@ -1,11 +1,16 @@
-const Slideshow = function(slideshowId) {
+const Slideshow = function(slideshowContainerClassName) {
   let slideIndex = 0;
   const slideTimer = 5000;
   let timerId;
 
-  const slideshow = document.getElementById("slideshow") || null;
+  const slideshowContainer = document.getElementsByClassName(slideshowContainerClassName)[0] || null;
+  const slideshow = document.createElement("div");
+  slideshow.classList.add("slideshow");
+  slideshowContainer.appendChild(slideshow);
   const slides = document.getElementsByClassName("slide") || null;
   const dots = document.getElementsByClassName("slideshow-dot") || null;
+
+  const fullScreenClassName = "slideshow-full-screen";
 
   const slideshowData = [
     {
@@ -92,6 +97,12 @@ const Slideshow = function(slideshowId) {
     slideshowDotsDiv.innerHTML = slideshowDots.join("\r\n");
     html.push(slideshowDotsDiv.outerHTML);
 
+    //Add the slideshow full screen "X"
+    html.push("<a href=\"javascript:void(0);\" onclick=\"slideshow.closeFullScreen();\"><i class=\"slideshow-close fas fa-times\"></i></a>");
+
+    //Add the slideshow full screen open link
+    html.push("<a class=\"slideshow-open\" href=\"javascript:void(0);\" onclick=\"slideshow.openFullScreen();\"></a>");
+
     //Insert the final HTML into the #slideshow
     slideshow.innerHTML = html.join("\r\n");
   };
@@ -145,8 +156,20 @@ const Slideshow = function(slideshowId) {
     }
   };
 
+  const slideshowFullScreenOnClick = function(event) {
+    if (event.srcElement === slideshowContainer) {
+      this.closeFullScreen();
+    }
+  }.bind(this);
+
+  const slideshowFullScreenOnKeyUp = function(event) {
+    if (event.keyCode === 27 /*Esc*/) {
+      this.closeFullScreen();
+    }
+  }.bind(this);
+
   this.init = function() {
-    if (document.getElementById(slideshowId)) {
+    if (document.getElementsByClassName(slideshowContainerClassName).length) {
       //Dynamically build the slideshow HTML
       insertSlideshowHtml.apply(this);
 
@@ -177,7 +200,23 @@ const Slideshow = function(slideshowId) {
   this.start = function() {
     this.init();
   }
+
+  this.openFullScreen = function() {
+    if (!slideshowContainer.classList.contains(fullScreenClassName)) {
+      slideshowContainer.classList.add(fullScreenClassName);
+      window.addEventListener("click", slideshowFullScreenOnClick);
+      window.addEventListener("keyup", slideshowFullScreenOnKeyUp);
+    }
+  };
+
+  this.closeFullScreen = function() {
+    if (slideshowContainer.classList.contains(fullScreenClassName)) {
+      slideshowContainer.classList.remove(fullScreenClassName);
+      window.removeEventListener("click", slideshowFullScreenOnClick);
+      window.removeEventListener("keyup", slideshowFullScreenOnKeyUp);
+    }
+  };
 };
 
-const slideshow = new Slideshow("slideshow");
+const slideshow = new Slideshow("slideshow-container");
 slideshow.init();
