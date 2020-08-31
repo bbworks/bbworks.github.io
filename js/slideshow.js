@@ -202,9 +202,11 @@ const Slideshow = function(slideshowContainerClassName) {
   }
 
   this.openFullScreen = function() {
+    console.log(event)
     if (!slideshowContainer.classList.contains(fullScreenClassName)) {
       slideshowContainer.classList.add(fullScreenClassName);
-      window.addEventListener("click", slideshowFullScreenOnClick);
+      window.addEventListener("mouseup", slideshowFullScreenOnClick);
+      window.addEventListener("touchend", slideshowFullScreenOnClick);
       window.addEventListener("keyup", slideshowFullScreenOnKeyUp);
     }
   };
@@ -212,7 +214,8 @@ const Slideshow = function(slideshowContainerClassName) {
   this.closeFullScreen = function() {
     if (slideshowContainer.classList.contains(fullScreenClassName)) {
       slideshowContainer.classList.remove(fullScreenClassName);
-      window.removeEventListener("click", slideshowFullScreenOnClick);
+      window.removeEventListener("mouseup", slideshowFullScreenOnClick);
+      window.removeEventListener("touchend", slideshowFullScreenOnClick);
       window.removeEventListener("keyup", slideshowFullScreenOnKeyUp);
     }
   };
