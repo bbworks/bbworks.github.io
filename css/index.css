@@ -96,27 +96,31 @@ hr {
   border: 1px solid gray;
 }
 
-.call-to-action-container {
-  text-align: right;
-}
-
 .call-to-action {
   display: inline-block;
+  float: right;
   min-width: 5em;
   color: white;
   background-color: var(--accent-color);
-  font-size: 1em;
+  font-size: 0.75rem;
   font-weight: bold;
-  padding: 0.25em 0.5em;
+  text-align: right;
+  padding: 0.5rem 1rem;
   border: none;
   border-radius: 0.5em;
   margin-top: 1.5em;
 }
 
+.card .call-to-action {
+  float: none;
+  margin-top: auto;
+  align-self: flex-end;
+}
+
 .call-to-action i {
   color: white;
   background-color: var(--accent-color);
-  padding-left: 1em;
+  padding-left: 0.5rem;
 }
 
 
@@ -125,9 +129,9 @@ hr {
 ------------------------------*/
 
 .home-section {
-  background-color: white;
-  border: 1px solid var(--dark-foreground-color);
-  border-radius: 0.5em;
+  /* background-color: white; */
+  /* border: 1px solid var(--dark-foreground-color); */
+  /* border-radius: 0.5em; */
   padding: 1em;
 }
 
@@ -154,11 +158,10 @@ hr {
 
 .home-section-icon-container {
   text-align: center;
-  paddmargining: 0.5em 0;
 }
 
 .home-section-icon {
-  margin: 0 8px;
+  margin: 0 0.25rem;
 }
 
 .home-section-icon-i {
@@ -170,14 +173,16 @@ hr {
   height: 4em;
 }
 
+.home-section-icon-i.fab {
+  /* background-color: white; */
+}
+
 .home-section-icon-i.fab.fa-html5 {
   color: #e34f26; /*#fb7a5a*/
-  background-color: white;
 }
 
 .home-section-icon-i.fab.fa-css3-alt {
   color: #309ed9; /*#63bced*/
-  background-color: white;
 }
 
 .home-section-icon-i.fab.fa-js {
@@ -185,19 +190,12 @@ hr {
   background-color: #2e2e2c;
 }
 
-.home-section-icon-i.fab.fa-aws {
-  color: white;
-  background-color: #232f3e;
-}
-
 .home-section-icon-i.fab.fa-git-alt {
   color: #f05133;
-  background-color: white;
 }
 
 .home-section-icon-i.fab.fa-github {
   color: black;
-  background-color: white;
 }
 
 
