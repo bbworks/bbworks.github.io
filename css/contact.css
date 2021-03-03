@@ -1,0 +1,66 @@
+/*-----------
+//  CONTACT
+------------------------------*/
+
+.contact-image {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.contact-email {
+  text-align: right;
+  padding-right: 1em;
+}
+
+.contact-email a {
+  font-weight: bold;
+}
+
+.contact-email i {
+  color: rgb(0,111,192);
+}
+
+.contact-form {
+  margin-top: 1em;
+}
+
+.contact-form-component {
+  width: 100%;
+  padding: 0.5em 1em;
+  color: gray;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  border-radius: 0.25em;
+}
+
+.contact-form-label {
+  font-weight: bold;
+  color: gray;
+}
+
+.contact-form-input {
+  font-size: 1em;
+}
+
+.contact-form-textarea {
+  resize: none;
+  height: 9em;
+}
+
+.contact-form-button {
+  width: 9em;
+  height: 2.5em;
+  font-size: 1em;
+  font-weight: bold;
+  color: var(--light-text-color);
+  background-color: var(--primary-color);
+  padding: 0.25em 1em;
+  border: none;
+  border-radius: 0.5em;
+}
+
+.contact-form-button:hover {
+  background-color: gray;
+  transition: background-color 0.25s;
+}

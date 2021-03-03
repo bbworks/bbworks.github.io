@@ -1,0 +1,76 @@
+/*-----------
+//  PORTFOLIO
+------------------------------*/
+
+.portfolio-section {
+  word-wrap: break-word;
+}
+
+.portfolio-container {
+  position: relative;
+}
+
+.portfolio-fade-on-hover {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s 0.1s;
+}
+
+.portfolio-shade-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0;
+  transition: opacity 0.5s 0.1s;
+}
+
+.portfolio-inner-container {
+  top: 0;
+  text-align: center;
+  padding-top: 15%;
+  width: 100%;
+}
+
+.portfolio-inner-container > *,
+.portfolio-inner-container > p {
+  color: var(--light-text-color);
+}
+
+.portfolio-container:hover .portfolio-shade-container {
+  opacity: 0.5;
+}
+
+.portfolio-container:hover .portfolio-fade-on-hover {
+  opacity: 1;
+}
+
+.portfolio-image {
+  width: 100%;
+}
+
+.portfolio-title {
+  font-size: 1.25em;
+}
+
+.portfolio-type {
+  font-size: 0.8em;
+}
+
+.portfolio-description {
+  padding-top: 0.5em;
+  font-size: 0.8em;
+}
+
+.portfolio-call-to-action {
+  bottom: 0.5em;
+  right: 0.5em;
+}
+
+.portfolio-hr {
+  border-top: 2px solid gray;
+  margin-top: 3em;
+  margin-bottom: 0.5em;
+  font-size: 0.7em;
+}

@@ -1,0 +1,151 @@
+/*CONVERSION*/
+/*1px = 3/4pt = 1/16em = 0.12671875vw*/
+
+/*-----------
+//  UNIVERSAL
+------------------------------*/
+
+:root {
+  --primary-color:           #8b0000; /*rgb(139,0,0) "darkred" //##3774ce*/
+  --secondary-color:         ;
+  --light-text-color:        rgb(235,235,235);
+  --muted-text-color:        #808080; /*rgb(128,128,128) "gray"*/
+
+  --light-foreground-color:  #323232; /*rgb(50,50,50)*/
+  --light-background-color:  #f5f5f5; /*rgb(255,255,255) "white"*/
+  --light-background-color-translucent:  rgba(245,245,245,0.8); /*rgb(255,255,255) "white"*/
+
+  --dark-foreground-color:   #969696; /*rgb(211,211,211) "lightgray"*/
+  --dark-background-color:   #323232; /*rgb(50,50,50)*/
+
+  --header-foreground-color: var(--light-foreground-color);
+  --header-background-color: var(--light-background-color);
+
+  --footer-foreground-color: var(--dark-foreground-color);
+  --footer-background-color: var(--dark-background-color);
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--light-background-color);
+  font-family: sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/*-----------
+//  UNIVERSAL CLASSES
+------------------------------*/
+
+.btn {
+  color: white;
+  background-color: var(--primary-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.btn-negative {
+  color: black;
+  background-color: rgb(200,200,200);
+}
+
+.btn[disabled] {
+  color: rgba(16,16,16, 0.3);
+  background-color: rgba(239,239,239, 0.3);
+  border: 1px solid rgba(118,118,118,0.3);
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.fade-in-on-scroll-listener {
+  opacity: 0;
+  transition: 1s 0.2s;
+  transform: translateY(20px);
+}
+
+.fade-in-on-scroll {
+  transform: none;
+  opacity: 1;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+/*-----------
+//  WEBSITE CLASSES
+------------------------------*/
+
+.main {
+  width: 100%;
+}
+
+.page-title {
+  padding-top: 1em;
+  padding-left: 0.5em;
+}
+
+.content {
+  padding-top: 0.5em;
+  padding-right: 1em;
+  padding-bottom: 1em;
+  padding-left: 1em;
+}
+
+.content p, .content ul {
+  color: var(--dark-background-color);
+}
+
+.section {
+  width: 100%;
+  margin: 0.5em 0;
+}
+
+.horizontal-rule {
+  width: 80%;
+  margin: 1em auto;
+  border-top: 2px solid gray;
+}
+
+.call-to-action {
+  display: inline-block;
+  float: right;
+  min-width: 5em;
+  color: var(--light-text-color);
+  background-color: var(--primary-color);
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-align: right;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5em;
+  margin-top: 1.5em;
+}
+
+.card .call-to-action {
+  float: none;
+  margin-top: auto;
+  align-self: flex-end;
+}
+
+.call-to-action i {
+  color: var(--light-text-color);
+  background-color: var(--primary-color);
+  padding-left: 0.5rem;
+}

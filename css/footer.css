@@ -1,11 +1,18 @@
 .footer-container {
-	color: var(--dark-foreground-color);
-	background-color: var(--dark-background-color);
+	width: 100%;
+	background-color: var(--footer-background-color);
 	padding: 0.5em 2em;
+}
+
+.footer-container,
+.footer-container * {
+	color: var(--footer-foreground-color);
+	overflow-y: hidden;
 }
 
 .footer-section {
 	width: 100%;
+	float: left;
 }
 
 .footer-copyright {
@@ -25,7 +32,6 @@
 }
 
 .footer-social-media .fab {
-  color: lightgray;
   font-size: 1.5em;
   text-align: center;
   margin: 0.2em;

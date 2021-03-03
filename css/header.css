@@ -1,12 +1,13 @@
 .header-container {
-  background-color: var(--light-background-color);
+  background-color: var(--header-background-color);
+  width: 100%;
   height: 3em;
   padding: 0.1em 1em;
   border-bottom: 1px solid #323232;
 }
 
 .header-container a {
-  color: var(--accent-color);
+  color: var(--primary-color);
 }
 
 .header-nav {
@@ -24,8 +25,9 @@
 }
 
 .header-logo h1 {
-  color: var(--light-foreground-color);
-  font-family: serif;
+  color: var(--header-foreground-color);
+  font-family: 'Roboto', serif;
+  font-weight: normal;
 }
 
 .header-nav-container {
@@ -49,15 +51,15 @@
 }
 
 .header-nav-item:not(.mobile-nav-toggle):hover {
-	color: var(--light-foreground-color);
+	color: var(--header-foreground-color);
 }
 
 .header-nav-item.current {
-  color: var(--light-foreground-color);
+  color: var(--header-foreground-color);
 }
 
 .header-nav-item.current:hover {
-	color: var(--accent-color);
+	color: var(--primary-color);
 }
 
 .header-on-scroll {

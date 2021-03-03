@@ -1,6 +1,6 @@
 const Header = (function() {
   const headerHTML =
-    '<header class="header-container full">\r\n' +
+    '<header class="header-container">\r\n' +
       '\t<nav class="header-nav">\r\n' +
       '\t\t<a class="header-logo" href="/"><h1>Bradley Biera</h1></a>\r\n' +
       '\t\t<div class="header-nav-container">\r\n' +

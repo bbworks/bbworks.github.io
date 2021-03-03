@@ -155,7 +155,7 @@ Z-INDEX VALUES
 }
 
 .slideshow-close {
-	display: none !important;
+	display: none;
 }
 
 .slideshow-full-screen {
@@ -176,7 +176,7 @@ Z-INDEX VALUES
 }
 
 .slideshow-full-screen .slideshow-close {
-	display: block !important;
+	display: block;
 	color: white;
   transition: opacity 0.3s;
   opacity: 0.5;
