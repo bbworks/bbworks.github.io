@@ -5,32 +5,19 @@
 	<!--[if gt IE 8]>      <html class="no-js" lang="en"> <![endif]-->
 <html class="no-js" lang="en">
   <head>
-    <meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="format-detection" content="telephone=no">
-		<meta name="description" content="The home page for Bradley Biera.">
-    <title>Bradley Biera | Home</title>
-
-    <!-- Font Awesome -->
-    <!-- <script src="https://kit.fontawesome.com/4849833081.js" crossorigin="anonymous"></script> -->
-    <link type="text/css" rel="stylesheet" href="/lib/fontawesome-free-5.14.0-web/css/all.css">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-
-    <!-- Google ReCAPTCHA -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-    <link type="text/css" rel="stylesheet" href="/css/main.css">
-    <link type="text/css" rel="stylesheet" href="/css/index.css">
-    <link type="text/css" rel="stylesheet" href="/css/header.css">
-    <link type="text/css" rel="stylesheet" href="/css/footer.css">
-    <link type="text/css" rel="stylesheet" href="/css/slideshow.css">
-    <link type="text/css" rel="stylesheet" href="/css/cards.css">
-		<link type="image/ico" rel="icon" href="/assets/favicon.ico">
+    <%- include("partials/head.ejs", {
+      meta: {
+        title: "Bradley Biera | Home",
+        cssSheetNames: [
+          "index.css",
+          "slideshow.css",
+          "cards.css",
+        ]
+      },
+    }) %>
   </head>
   <body>
-    <header></header>
+    <%- include("partials/header.ejs") %>
     <main class="main">
       <!-- This will be filled in dynamically by slideshow.js -->
       <section class="slideshow-container"></section>
@@ -107,14 +94,12 @@
         </section>
       </div>
     </main>
-    <footer></footer>
-    <script src="/js/header.js"></script>
-    <script src="/js/footer.js"></script>
-    <script src="/js/slideshow.js"></script>
-    <script src="/js/toggleMobileNav.js"></script>
-		<script src="/js/contactForm.js"></script>
-		<script src="/js/fade.js"></script>
-    <script src="/js/currentPageDetector.js"></script>
-		<script src="/js/headerOnScroll.js"></script>
+    <%- include("partials/footer.ejs") %>
+    <%- include("partials/script.ejs", {
+      scripts: [
+        "slideshow.js",
+        "fade.js",
+      ]
+    }) %>
   </body>
 </html>

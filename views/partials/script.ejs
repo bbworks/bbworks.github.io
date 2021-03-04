@@ -1,0 +1,11 @@
+<!-- views/partials/script.ejs -->
+
+<!-- Site-wide scripts -->
+<script src="/js/toggleMobileNav.js"></script>
+<script src="/js/currentPageDetector.js"></script>
+<script src="/js/headerOnScroll.js"></script>
+
+<!-- Page-specific scripts -->
+<% scripts.forEach(script=>{ %>
+  <script src="/js/<%- script %>"></script>
+<% }); %>

@@ -5,31 +5,52 @@
 	<!--[if gt IE 8]>      <html class="no-js" lang="en"> <![endif]-->
 <html class="no-js" lang="en">
   <head>
+    <!-- views/partials/head.ejs -->
+
     <meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="format-detection" content="telephone=no">
-		<meta name="description" content="About Bradley Biera.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="The personal site for Bradley Biera.">
     <title>Bradley Biera | About</title>
 
     <!-- Font Awesome -->
     <!-- <script src="https://kit.fontawesome.com/4849833081.js" crossorigin="anonymous"></script> -->
-    <link type="text/css" rel="stylesheet" href="/lib/fontawesome-free-5.14.0-web/css/all.css">
+    <link type="text/css" rel="stylesheet" href="/lib/fontawesome-free-5.14.0-web/css/all.min.css">
 
-    <!-- Font Awesome -->
+    <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 
     <!-- Google ReCAPTCHA -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
+    <!-- Site-wide stylesheets -->
     <link type="text/css" rel="stylesheet" href="/css/main.css">
-    <link type="text/css" rel="stylesheet" href="/css/about.css">
     <link type="text/css" rel="stylesheet" href="/css/header.css">
     <link type="text/css" rel="stylesheet" href="/css/footer.css">
-    <link type="text/css" rel="stylesheet" href="/css/slideshow.css">
     <link type="image/ico" rel="icon" href="/assets/favicon.ico">
+
+    <!-- Page-specific stylesheets -->
+    
+      <link type="text/css" rel="stylesheet" href="/css/about.css">
+    
+
   </head>
   <body>
-    <header></header>
+    <!-- views/partials/header.ejs -->
+
+    <header class="header-container">
+      <nav class="header-nav">
+      <a class="header-logo" href="/"><h1>Bradley Biera</h1></a>
+      <div class="header-nav-container">
+          <a class="header-nav-item" href="/">Home</a
+          ><a class="header-nav-item" href="/about/">About</a
+          ><a class="header-nav-item" href="/music/">Music</a
+          ><a class="header-nav-item" href="/portfolio/">Portfolio</a
+          ><a class="header-nav-item" href="/contact/">Contact</a>
+        </div
+        ><a class="header-nav-item mobile-nav-toggle fa fa-bars" href="javascript:void(0);" onclick="toggleMobileNav(&quot;header-nav&quot;,&quot;header-nav-container&quot;,&quot;mobile-nav-toggle&quot;)"></a>
+      </nav>
+    </header>
+
     <main class="main">
       <h2 class="page-title">About</h2>
       <div class="content">
@@ -61,14 +82,36 @@
         </section>
       </div>
     </main>
-    <footer></footer>
-    <script src="/js/header.js"></script>
-    <script src="/js/footer.js"></script>
-    <script src="/js/slideshow.js"></script>
-    <script src="/js/toggleMobileNav.js"></script>
-		<script src="/js/contactForm.js"></script>
-		<script src="/js/fade.js"></script>
-		<script src="/js/currentPageDetector.js"></script>
-		<script src="/js/headerOnScroll.js"></script>
+    <!-- views/partials/footer.ejs -->
+
+    <footer class="footer-container">
+      <div class="footer-section footer-copyright">
+        &copy;2020 Bradley Biera
+      </div
+      ><div class="footer-section footer-social-media">
+        <a class="fab fa-facebook-square" href="https://www.facebook.com/bradley.biera" target="_blank" title="Bradley Biera | Facebook"></a>
+        <a class="fab fa-linkedin" href="http://www.linkedin.com/in/bradley-biera-059674135/" target="_blank" title="Bradley Biera | LinkedIn"></a>
+        <a class="fab fa-youtube" href="https://www.youtube.com/user/BradleyBieraMusic" target="_blank" title="BradleyBieraMusic | YouTube"></a>
+        <a class="fab fa-github" href="https://github.com/bbworks" target="_blank" title="Bradley Biera | Github"></a>
+      </div
+      ><nav class="footer-section footer-nav">
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/music/">Music</a>
+        <a href="/portfolio/">Portfolio</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </footer>
+
+    <!-- views/partials/script.ejs -->
+
+<!-- Site-wide scripts -->
+<script src="/js/toggleMobileNav.js"></script>
+<script src="/js/currentPageDetector.js"></script>
+<script src="/js/headerOnScroll.js"></script>
+
+<!-- Page-specific scripts -->
+
+
   </body>
 </html>
