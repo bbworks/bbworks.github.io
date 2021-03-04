@@ -15,7 +15,9 @@
     }) %>
   </head>
   <body>
-    <%- include("../partials/header.ejs") %>
+    <%- include("../partials/header.ejs", {
+      currentPage: "portfolio",
+    }) %>
     <main class="main">
       <h2 class="page-title">Portfolio</h2>
       <div class="content">

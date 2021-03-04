@@ -17,7 +17,9 @@
     }) %>
   </head>
   <body>
-    <%- include("partials/header.ejs") %>
+    <%- include("partials/header.ejs", {
+      currentPage: "home",
+    }) %>
     <main class="main">
       <!-- This will be filled in dynamically by slideshow.js -->
       <section class="slideshow-container"></section>
