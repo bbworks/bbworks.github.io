@@ -26,17 +26,17 @@
 }
 
 .about-section-name-container {
-  margin: 0.5em 0;
+  margin: 0.5rem 0;
 }
 
 .about-section-name {
   color: var(--primary-color);
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 
 .about-section-title {
   color: var(--primary-color);
-  padding-left: 0.5em;
-  font-size: 0.9em;
+  padding-left: 0.5rem;
+  font-size: 0.9rem;
   font-style: italic;
 }

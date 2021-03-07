@@ -3,7 +3,7 @@
 ------------------------------*/
 
 .home-section {
-  padding: 1em;
+  padding: 1rem;
 }
 
 .summary {
@@ -13,17 +13,17 @@
 }
 
 .summary-line {
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 .summary-subline {
-  font-size: 0.8em;
+  font-size: 0.8rem;
 }
 
 .home-section-header {
   color: var(--primary-color);
   text-align: right;
-  margin: 0.5em 0;
+  margin: 0.5rem 0;
 }
 
 .home-section-icon-container {
@@ -35,12 +35,12 @@
 }
 
 .home-section-icon-i {
-  font-size: 4em;
+  font-size: 4rem;
 }
 
 .home-section-icon-image {
-  width: 4em;
-  height: 4em;
+  width: 4rem;
+  height: 4rem;
 }
 
 .home-section-icon-i.fab {

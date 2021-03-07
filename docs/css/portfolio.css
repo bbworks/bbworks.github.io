@@ -51,26 +51,26 @@
 }
 
 .portfolio-title {
-  font-size: 1.25em;
+  font-size: 1.25rem;
 }
 
 .portfolio-type {
-  font-size: 0.8em;
+  font-size: 0.8rem;
 }
 
 .portfolio-description {
-  padding-top: 0.5em;
-  font-size: 0.8em;
+  padding-top: 0.5rem;
+  font-size: 0.8rem;
 }
 
 .portfolio-call-to-action {
-  bottom: 0.5em;
-  right: 0.5em;
+  bottom: 0.5rem;
+  right: 0.5rem;
 }
 
 .portfolio-hr {
   border-top: 2px solid gray;
-  margin-top: 3em;
-  margin-bottom: 0.5em;
-  font-size: 0.7em;
+  margin-top: 3rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.7rem;
 }
