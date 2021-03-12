@@ -47,18 +47,6 @@
 	color: var(--primary-color);
 }
 
-.header-on-scroll {
-  position: fixed;
-  top: 0;
-  z-index: 99;
-  transform: translateY(-100%);
-}
-
-.header-on-scroll.header-on-scroll-visible {
-  transition: transform 0.5s 0.5s;
-  transform: translateY(0);
-}
-
 /* Mobile(portrait) (<768px)*/
 @media screen and (max-width: 600px) {
   .header-nav {

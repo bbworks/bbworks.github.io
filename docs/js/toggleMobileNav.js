@@ -3,6 +3,19 @@ const toggleMobileNav = function(event) {
   const toggle = event.target;
   const nav = toggle.parentNode;
 
-  //Toggle the "responsive" class on the toggle
+  const toggleClosedClass = /*fas*/ "fa-bars";
+  const toggleOpenClass = /*fas*/ "fa-times";
+
+  //Toggle the "responsive" class on the navigation
   nav.classList.toggle("responsive");
+
+  //Toggle the icon on the toggle
+  if (nav.classList.contains("responsive")) {
+    toggle.classList.remove(toggleClosedClass);
+    toggle.classList.add(toggleOpenClass);
+  }
+  else {
+    toggle.classList.remove(toggleOpenClass);
+    toggle.classList.add(toggleClosedClass);
+  }
 };

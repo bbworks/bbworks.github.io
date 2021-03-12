@@ -90,17 +90,6 @@ button {
   outline: none;
 }
 
-.fade-in-on-scroll-listener {
-  opacity: 0;
-  transition: 1s 0.2s;
-  transform: translateY(20px);
-}
-
-.fade-in-on-scroll {
-  transform: none;
-  opacity: 1;
-}
-
 .strikethrough {
   text-decoration: line-through;
 }
