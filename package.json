@@ -6,12 +6,20 @@
   "directories": {
     "doc": "docs"
   },
-  "dependencies": {
-    "ejs-cli": "^2.2.1"
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.26.14",
+    "concurrently": "^6.0.0",
+    "ejs-cli": "^2.2.1",
+    "watch": "^1.0.2"
   },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-server": "browser-sync start --server \"docs/\" --files \"docs/\" --port 5000",
+    "start": "concurrently \"npm run start-server\" \"npm run watch\" --kill-others",
+    "build-ejs": "ejs-cli -b views/ \"**/*.ejs\" --out docs/ -e \"partials/\"",
+    "watch-ejs": "watch \"npm run build-ejs\" ./views/",
+    "watch": "npm run watch-ejs"
   },
   "repository": {
     "type": "git",
