@@ -6,7 +6,7 @@
   align-items: center;
   background-color: var(--header-background-color);
   width: 100%;
-  padding: 0.25rem 0.5rem;
+  padding: 0 0.5rem;
 }
 
 .header-logo {
@@ -35,7 +35,32 @@
 }
 
 .header-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: white;
   text-align: center;
+  height: 3rem;
+}
+
+.header-nav:before {
+  content: "";
+  position: absolute;
+  left: -4rem;
+  top: 0;
+  border-left: 4rem solid transparent;
+  border-right: 0px solid transparent;
+  border-bottom: 3rem solid white;
+}
+
+.header-nav:after {
+  content: "";
+  position: absolute;
+  right: -0.5rem;
+  top: 0;
+  bottom: 0;
+  width: 0.5rem;
+  background-color: white;
 }
 
 .header-nav-item:not(.header-nav-toggle):hover,
@@ -52,7 +77,10 @@
   .header-nav {
     position: fixed;
     left: 0;
+    display: block;
+    align-items: center;
     width: 100%;
+    height: unset;
     z-index: 99;
     background-color: var(--light-background-color-translucent);
     overflow-y: scroll;

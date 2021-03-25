@@ -1,225 +1,275 @@
-const Slideshow = function(slideshowContainerClassName) {
-  let slideIndex = 0;
-  const slideTimer = 5000;
-  let timerId;
-
-  const slideshowContainer = document.getElementsByClassName(slideshowContainerClassName)[0] || null;
-  const slideshow = document.createElement("div");
-  slideshow.classList.add("slideshow");
-  slideshowContainer.appendChild(slideshow);
-  const slides = document.getElementsByClassName("slide") || null;
-  const dots = document.getElementsByClassName("slideshow-dot") || null;
-
+const Slideshow = function(slideshowSelector) {
+  //Declare variables
+  const slideshowContainer = document.querySelector(slideshowSelector) || null;
+  let slideshow;
   const fullScreenClassName = "slideshow-full-screen";
 
-  const slideshowData = [
-    {
-    	src: "assets/hero/1_IMG_5647.jpg",
-      style: null,
-    	caption: "Married: ✔️"
-    },
-    {
-    	src: "assets/hero/2_20191116_092722000_iOS.jpg",
-      style: null,
-    	caption: "*snuggle snuggle*"
-    },
-    {
-    	src: "assets/hero/3_109A0482.jpg",
-      style: "object-position: 50% 40%;",
-    	caption: "Marriage swag"
-    },
-    {
-    	src: "assets/hero/4_109A0403.jpg",
-      style: "object-position: 50% 50%;",
-    	caption: "*kissy kissy*"
-    },
-    {
-    	src: "assets/hero/5_IMG_0035.jpg",
-      style: null,
-    	caption: "Engagement | Chastain Park, Atlanta, Georgia."
-    },
-    {
-    	src: "assets/hero/6_IMG_3377.jpg",
-      style: "object-position: 50% 30%;",
-    	caption: "USC Upstate Honors Program | \"Excellence in Leadership and Service\" Award | 2015 - 2016"
-    },
-    {
-    	src: "assets/hero/7_IMG_6280.jpg",
-      style: "object-position: 50% 90%;",
-    	caption: "Awanita | Brookwood Church Switch Camp | July 2017"
-    },
-  ];
+  //Declare global variables
+  let slides = [];
+  let slideshowDots = [];
+  let slideIndex = 0;
+  const slideTimer = 10000;
+  let slideshowTimerId;
 
-  const insertSlideshowHtml = function() {
-    let numOfSlides = slideshowData.length;
-    let html = [];
 
-    //For each slide object, create dynamic HTML for the slide
-    for (let i in slideshowData) {
-      let slide = slideshowData[i];
-      let index = Number(i)+1;
-      let styleAttribute = (slide.style ? "style=\""+slide.style+"\" " : "");
-
-      html.push(
-        `<div class="slide">\r\n`+
-    		`\t<img src="${slide.src}" class="slide-image" ${styleAttribute}/>\r\n`+
-    		`\t<div class="slide-number">\r\n`+
-    		`\t\t${index}/${numOfSlides}\r\n`+
-    		`\t</div>\r\n`+
-    		`\t<div class="slideshow-title-container">\r\n`+
-    		`\t\t<div class="slideshow-title">\r\n`+
-    		`\t\t\t${index}\r\n`+
-    		`\t\t</div>\r\n`+
-    		`\t</div>\r\n`+
-    		`\t<div class="slideshow-description-container">\r\n`+
-    		`\t\t<div class="slideshow-description">\r\n`+
-    		`\t\t\t${slide.caption}\r\n`+
-    		`\t\t</div>\r\n`+
-    		`\t</div>\r\n`+
-        `</div>`
-      );
-    } //end for
-
-    //Add the .slide-left-button and .slide-right-button
-    const buttons = [
-      "<a class=\"fas fa-angle-left slide-left-button\" onclick=\"slideshow.nextSlide(-1, true)\"></a>",
-      "<a class=\"fas fa-angle-right slide-right-button\" onclick=\"slideshow.nextSlide(1, true)\"></a>"
-    ]
-    buttons.forEach((button) => html.push(button));
-
-    //Add the .slideshow-dots
-    const slideshowDotsDiv = document.createElement("div");
-    slideshowDotsDiv.classList.add("slideshow-dot-container");
-    let slideshowDots = [];
-    for(let i = 0; i < numOfSlides; i++) {
-      slideshowDots.push(`<span class="fas fa-circle slideshow-dot" onclick="slideshow.setSlide(${i});"></span>`);
-    }
-    slideshowDotsDiv.innerHTML = slideshowDots.join("\r\n");
-    html.push(slideshowDotsDiv.outerHTML);
-
-    //Add the slideshow full screen "X"
-    html.push("<a href=\"javascript:void(0);\" onclick=\"slideshow.closeFullScreen();\"><i class=\"slideshow-close fas fa-times\"></i></a>");
-
-    //Add the slideshow full screen open link
-    html.push("<a class=\"slideshow-open\" href=\"javascript:void(0);\" onclick=\"slideshow.openFullScreen();\"></a>");
-
-    //Insert the final HTML into the #slideshow
-    slideshow.innerHTML = html.join("\r\n");
+  //Declare functions
+  const fetchSlideshowData = function(dataFilePath, callback) {
+    //Create function to retrive slideshow data
+    fetch(dataFilePath)
+      .then(response=>response.json())
+      .then(data=>callback(data))
+      .catch(err=>{console.error("Failed to get slideshow data.", err);});
   };
 
-  const getCssRule = function(selector) {
-      for (let i in document.styleSheets) {
-      	let cssRules = document.styleSheets[i].cssRules;
-  	    for (let j in cssRules) {
-      		let cssRule = cssRules[j];
-      		if (cssRule.selectorText === selector) {
-      			return cssRule;
-      		}
-      	}
-      }
-      return false;
+  const createDOMNode = function(HTML) {
+    const container = document.createElement("div");
+    container.innerHTML = HTML;
+    return container.firstChild;
   };
 
-  const resetTimer = function() {
-    if (timerId !== -1) {
-      window.clearInterval(timerId);
+  const createSlideshow = function() {
+    return createDOMNode(`<div class="slideshow"></div>`);
+  };
+
+  const createSlide = function(imageSrc, title, caption, number, objectPositionCSS) {
+    objectPositionCSS = `object-position: ${objectPositionCSS || "none"};`;
+    return createDOMNode(`<div class="slide">
+        <img class="slide-image" src="${imageSrc}" style="${objectPositionCSS}"/>
+        <!-- <div class="slide-number">${number}</div> -->
+        <!-- <div class="slide-text-section slide-title">${title}</div> -->
+        <div class="slide-text-section slide-description">${caption}</div>
+      </div>`);
+  };
+
+  const createSlideshowButton = function(type) {
+    let styleClass;
+    let iconClasses = [];
+    let onClick;
+
+    switch (type) {
+      case "left":
+        styleClass = "slide-left-button";
+        iconClasses = ["fas", "fa-angle-left"];
+        onClick = ()=>previous();
+        break;
+      case "right":
+        styleClass = "slide-right-button";
+        iconClasses = ["fas", "fa-angle-right"];
+        onClick = ()=>next();
+        break;
+      default:
+        break;
     }
-    timerId = window.setInterval(this.nextSlide.bind(this, 1), slideTimer);
+
+    const element = createDOMNode(`<button class="slideshow-arrow-button ${styleClass}" type="button">
+      <i class="${iconClasses.join(" ")}"></i>
+    </button>`);
+    element.addEventListener("click", onClick);
+    return element
+  };
+
+  const createSlideshowDotContainer = function() {
+    return createDOMNode(`<div class="slideshow-dot-container"></div>`);
+  };
+
+  const createSlideshowDot = function(index) {
+    const element = createDOMNode(`<span class="slideshow-dot"></span>`);
+    element.addEventListener("click", ()=>setSlide(index));
+    return element;
+  };
+
+  const createSlideshowCollapseButton = function(index) {
+    return createDOMNode(`<button class="slideshow-fullscreen-collapse-button" type="button"><i class="fas fa-times"></i></button>`);
+  };
+
+  const createSlideshowExpandButton = function(index) {
+    return createDOMNode(`<a class="slideshow-fullscreen-expand" href="javascript:void(0);"></a>`);
+  };
+
+  const buildSlideshow = function(slideshowData) {
+    slideshowContainer.classList.add("slideshow-container");
+    slideshow = createSlideshow();
+
+    //Create and append a slide for each slide object
+    slides = slideshowData.map((slide, i) => createSlide(slide.src, i+1, slide.caption, `${i+1}/${slideshowData.length}`, slide.style));
+    slides.forEach(slide=>slideshow.appendChild(slide));
+
+    //Create and append the left and right arrow buttons
+    const buttons = {
+      left: createSlideshowButton("left"),
+      right: createSlideshowButton("right"),
+    };
+    Object.values(buttons).forEach(button=>slideshow.appendChild(button));
+
+    //Create the slideshow dots and their container
+    const slideshowDotContainer = createSlideshowDotContainer();
+    slideshowDots = slides.map((slide, i)=>createSlideshowDot(i));
+
+    slideshowDots.forEach(dot=>slideshowDotContainer.appendChild(dot));
+    slideshow.appendChild(slideshowDotContainer);
+
+    //Create and append the slideshow full screen collapse "X" button to the slideshow
+    const slideshowCollapse = createSlideshowCollapseButton();
+    slideshowCollapse.addEventListener("click", closeFullScreen);
+    slideshow.appendChild(slideshowCollapse);
+
+    //Create and append the slideshow full screen expand open link
+    const slideshowExpand = createSlideshowExpandButton();
+    // slideshow.appendChild(slideshowExpand);
+
+    //Append the slideshow to the container
+    slideshowContainer.appendChild(slideshow);
+
+    //Attach event listeners
+     slideshow.addEventListener("click", openFullScreen);
   };
 
   const renderSlideshow = function(index) {
-    const currentIndex = slideIndex;
-    const _index = (index + slides.length) % slides.length; //to assure we dont' get a negative
-    slideIndex = _index;
+    //Declare variables
+    const previousIndex = slideIndex;
+    const currentIndex = (index + slides.length) % slides.length; //to assure we dont' get a negative
+    slideIndex = currentIndex;
 
     //Hide or show each slide
-    for (let i = 0; i < slides.length; i++) {
-      const slide = slides[i];
-      const opacity = (i === _index || i === currentIndex ? 1 : 0);
-      const func = (i === _index ? "add" : "remove");
+    slides.forEach((slide, i)=>{
+      const visibility = (i === currentIndex || i === previousIndex ? "visible" : "hidden");
+      const func = (i === currentIndex ? "add" : "remove");
 
-      if (i === _index) {
+      //If this is the current slide, mark it as such
+      // and assure it is not marked as the previous slide
+      if (i === currentIndex) {
         slide.classList.add("current-slide");
         slide.classList.remove("previous-slide");
+        slideshowDots[i].classList.add("active"); //Make the current dot darken
       }
+      //Otherwise,
       else {
+        //Assure it is not marked as the current slide
         slide.classList.remove("current-slide");
-        if (i === currentIndex) {
+        slideshowDots[i].classList.remove("active");
+
+        //If it is the now previous slide, mark it as such,
+        // or assure it is not marked as such
+        if (i === previousIndex) {
           slide.classList.add("previous-slide");
         }
         else {
           slide.classList.remove("previous-slide");
         }
       }
-      slide.style.opacity = opacity; //Make older slides disappear
-      dots[i].classList[func]("active"); //Make the current dot darken
+
+      //Make older slides invisible
+      slide.style.visibility = visibility;
+    });
+  };
+
+  const resetTimer = () => { //arrow function to keep binding on this (Slideshow)
+    //Clear the timer
+    stop();
+
+    //Start the slideshow timer again
+    start();
+  };
+
+  const setSlide = function(index) {
+    renderSlideshow(index);
+    resetTimer(); //reset the timer whenever we manually change the slide
+  };
+
+  const previous = function() {
+    setSlide(slideIndex - 1);
+  };
+
+  const next = function() {
+    setSlide(slideIndex + 1);
+  };
+
+  const start = function() {
+    slideshowTimerId = window.setInterval(next, slideTimer);
+  };
+
+  const stop = function() {
+    window.clearInterval(slideshowTimerId);
+  };
+
+  const slideshowOnClick = function (event) {
+    const slideshowRect = slideshow.getBoundingClientRect();
+    if (!(
+	    (slideshowRect.x <= event.clientX) &&
+	    (slideshowRect.y <= event.clientY) &&
+	    (slideshowRect.x + slideshowRect.width >= event.clientX) &&
+	    (slideshowRect.y + slideshowRect.height >= event.clientY))
+	  ) {
+      closeFullScreen();
     }
   };
 
-  const slideshowFullScreenOnClick = function(event) {
-    if (event.srcElement === slideshowContainer) {
-      this.closeFullScreen();
-    }
-  }.bind(this);
-
-  const slideshowFullScreenOnKeyUp = function(event) {
+  const slideshowOnKeyUp = function (event) {
     if (event.keyCode === 27 /*Esc*/) {
-      this.closeFullScreen();
-    }
-  }.bind(this);
-
-  this.init = function() {
-    if (document.getElementsByClassName(slideshowContainerClassName).length) {
-      //Dynamically build the slideshow HTML
-      insertSlideshowHtml.apply(this);
-
-      //Display our slideshow
-      renderSlideshow.call(this, slideIndex);
-
-      //Set the timer
-      timerId = window.setInterval(this.nextSlide.bind(this, 1), slideTimer);
+      closeFullScreen();
     }
   };
 
-  this.nextSlide = function(index, reset) {
-    renderSlideshow.call(this, slideIndex + index);
-    if (reset) {
-      resetTimer.apply(this);
+  const openFullScreen = function(event) {
+    //Do nothing if switching slides or closing slideshow
+    if (event.target.classList.contains("slideshow-dot") ||
+      event.target.classList.contains("slideshow-arrow-button") ||
+      event.target.classList.contains("slideshow-fullscreen-collapse-button") ||
+      event.target.parentNode.classList.contains("slideshow-fullscreen-collapse-button")
+    ) {
+      return;
     }
-  };
 
-  this.setSlide = function(index) {
-    resetTimer.apply(this); //reset the timer whenever we manually change the slide
-    renderSlideshow.call(this, index);
-  };
-
-  this.stop = function() {
-    window.clearInterval(timerId);
-  };
-
-  this.start = function() {
-    this.init();
-  }
-
-  this.openFullScreen = function() {
-    console.log(event)
+    //Launch the slideshow into fullscreen, and set up event listeners
+    // to listen for when fullscreen should close
     if (!slideshowContainer.classList.contains(fullScreenClassName)) {
       slideshowContainer.classList.add(fullScreenClassName);
-      window.addEventListener("mouseup", slideshowFullScreenOnClick);
-      window.addEventListener("touchend", slideshowFullScreenOnClick);
-      window.addEventListener("keyup", slideshowFullScreenOnKeyUp);
+      window.addEventListener("mouseup", slideshowOnClick);
+      window.addEventListener("touchend", slideshowOnClick);
+      window.addEventListener("keyup", slideshowOnKeyUp);
+      slideshow.removeEventListener("click", openFullScreen);
     }
   };
 
-  this.closeFullScreen = function() {
+  const closeFullScreen = function() {
+    //Do nothing if switching slides
+    if (event.target.classList.contains("slideshow-dot") ||
+      event.target.classList.contains("slideshow-arrow-button")
+    ) {
+      return;
+    }
+
+    //Collapse the slideshow fullscreen, and remove  event listeners
+    // used to listen for when fullscreen should close
     if (slideshowContainer.classList.contains(fullScreenClassName)) {
       slideshowContainer.classList.remove(fullScreenClassName);
-      window.removeEventListener("mouseup", slideshowFullScreenOnClick);
-      window.removeEventListener("touchend", slideshowFullScreenOnClick);
-      window.removeEventListener("keyup", slideshowFullScreenOnKeyUp);
+      window.removeEventListener("mouseup", slideshowOnClick);
+      window.removeEventListener("touchend", slideshowOnClick);
+      window.removeEventListener("keyup", slideshowOnKeyUp);
+      slideshow.addEventListener("click", openFullScreen);
     }
   };
+
+  const init = function() {
+    if (document.querySelector(slideshowSelector)) {
+      //Assure the slideshow selector is empty
+      slideshowContainer.innerHTML = '';
+
+      //Fetch the slideshow data and create/render the slideshow to the page
+      fetchSlideshowData("/data/slideshowData.json", slideshowData=>{
+        //Create the slideshow
+        buildSlideshow(slideshowData);
+
+        //Display our slideshow
+        renderSlideshow(slideIndex);
+
+        start();
+        //Start the slideshow timer
+      });
+    }
+  };
+
+  init();
 };
 
-const slideshow = new Slideshow("slideshow-container");
-slideshow.init();
+const slideshow = new Slideshow("#slideshow");
