@@ -1,0 +1,26 @@
+//##_breakposts.scss##
+
+/// Mixin to manage responsive breakpoints
+/// @author Kitty Giraudel
+/// @param {String} $media-width-breakpoint - Breakpoint name
+/// @require $media-width-breakpoints
+/// https://css-tricks.com/snippets/sass/mixin-manage-breakpoints/
+@mixin media-width($media-width-breakpoint, $min-max: max) {
+  // If the key exists in the map
+  @if map-has-key($media-width-breakpoints, $media-width-breakpoint) {
+    // Prints a media query based on the value
+    @if $min-max == min or $min-max == max {
+      @media only screen and (#{$min-max}-width: map-get($media-width-breakpoints, $media-width-breakpoint)) {
+        @content;
+      }
+    }
+    @else {
+      @warn "Error: Argument $min-max must be of value #{[min max]}.";
+    }
+  }
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Error: No value `#{$media-width-breakpoint}` for variable `$media-width-breakpoint`. "
+        + "Available breakpoints are: #{map-keys($media-width-breakpoints)}.";
+  }
+}

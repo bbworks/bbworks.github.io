@@ -1,35 +1,47 @@
 {
   "name": "bbworks.github.io",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is the front-end of web-builder, the project that will build websites.",
   "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "browser-sync": "^2.26.14",
-    "concurrently": "^6.0.0",
-    "ejs-cli": "^2.2.1",
-    "watch": "^1.0.2"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start-server": "browser-sync start --server \"docs/\" --files \"docs/\" --port 5000",
-    "start": "concurrently \"npm run start-server\" \"npm run watch\" --kill-others",
-    "build-ejs": "ejs-cli -b views/ \"**/*.ejs\" --out docs/ -e \"partials/\"",
-    "watch-ejs": "watch \"npm run build-ejs\" ./views/",
-    "watch": "npm run watch-ejs"
+    "start": "concurrently \"npm run start:server\" \"npm run watch\" --kill-others",
+    "watch": "concurrently \"npm run watch:ejs\" \"npm run watch:sass\" \"npm run watch:js\" \"npm run watch:img\" --kill-others",
+    "build": "npm run build:ejs && npm run build:sass & npm run build:js & npm run build:img",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d public",
+    "start:server": "browser-sync start --server \"public/\" --files \"public/**/*.html\" \"public/css/all.css\" \"public/js/*\" \"public/images/*\" --port 5001",
+    "watch:ejs": "watch \"npm run build:ejs\" ./src/views/",
+    "build:ejs": "ejs-cli -b src/views/routes \"**/*.ejs\" --out public/ -e \"partials/\"",
+    "watch:sass": "onchange \"src/views/**/*.scss\" \"src/static/scss/**/*.scss\" --exclude \"src/static/scss/all.scss\" -- npm run build:sass",
+    "build:sass": "npm run concat:sass & npm run clean:css & npm run compile:sass",
+    "concat:sass": "gulp concatenate-sass",
+    "clean:css": "del-cli \"public/css/*\" --force",
+    "compile:sass": "sass \"src/static/scss/all.scss\" \"public/css/all.css\"",
+    "watch:js": "onchange \"src/views/**/*.js\" \"src/static/js/*.js\" -- npm run build:js",
+    "build:js": "npm run clean:js & npm run copy:js",
+    "clean:js": "del-cli \"public/js/*\" --force",
+    "copy:js": "copyfiles \"src/views/**/*.js\" \"src/static/js/*.js\" \"public/js\" --flat",
+    "watch:img": "onchange \"src/views/**/*.png\" \"src/views/**/*.jpeg\" \"src/views/**/*.jpg\" \"src/views/**/*.gif\" \"src/views/**/*.svg\" \"src/views/**/*.ico\" \"src/static/images/*.png\" \"src/static/images/*.jpeg\" \"src/static/images/*.jpg\" \"src/static/images/*.gif\" \"images/*.svg\" \"src/static/images/*.ico\" -- npm run build:img",
+    "build:img": "npm run clean:img & npm run copy:img",
+    "clean:img": "del-cli \"public/images/*\" --force",
+    "copy:img": "copyfiles \"src/static/images/**/*.png\" \"src/static/images/**/*.jpeg\" \"src/static/images/**/*.jpg\" \"src/static/images/**/*.gif\" \"src/static/images/**/*.svg\" \"src/static/images/**/*.ico\" \"public/images\" --up 3 & copyfiles \"src/views/**/*.png\" \"src/views/**/*.jpeg\" \"src/views/**/*.jpg\" \"src/views/**/*.gif\" \"src/views/**/*.svg\" \"src/views/**/*.ico\"  \"public/images\" --flat"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bbworks/bbworks.github.io.git"
-  },
-  "keywords": [],
-  "author": "",
+  "author": "Bradley Biera",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/bbworks/bbworks.github.io/issues"
-  },
-  "homepage": "https://github.com/bbworks/bbworks.github.io#readme"
+  "devDependencies": {
+    "browser-sync": "^2.27.7",
+    "concurrently": "^6.3.0",
+    "copyfiles": "^2.4.1",
+    "del-cli": "^3.0.1",
+    "ejs-cli": "^2.2.2",
+    "gh-pages": "^3.2.3",
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-cli": "^2.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-concat-css": "^3.1.0",
+    "onchange": "^7.1.0",
+    "sass": "^1.43.4",
+    "watch": "^1.0.2"
+  }
 }

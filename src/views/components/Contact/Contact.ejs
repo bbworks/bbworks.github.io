@@ -1,0 +1,30 @@
+      <main class="view contact-view">
+        <section class="section">
+          <div class="container">
+            <h2 class="page-title">Contact</h2>
+          </div>
+        </section>
+        <div class="content">
+          <section class="section contact-section">
+            <div class="container">
+              <img class="contact-image" src="/images/466410_4783174939615_1618313192_o.jpg"/>
+            </div>
+          </section>
+          <section class="section contact-section">
+            <div class="container">
+              <form class="contact-form" action="https://formspree.io/xgenedkv" method="POST">
+                <label class="contact-form-label" for="contact-form-name">Name</label>
+                <input id="contact-form-name" name="name" class="contact-form-component contact-form-input" type="text" tabindex="1"></input>
+                <label class="contact-form-label" for="contact-form-replyTo">Email</label>
+                <input id="contact-form-replyTo" name="_replyto" class="contact-form-component contact-form-input" type="email" tabindex="2"></input>
+                <label class="contact-form-label" for="contact-form-body">Body</label>
+                <textarea id="contact-form-body" name="body" class="contact-form-component contact-form-textarea" tabindex="4"></textarea>
+                <input type="submit" class="contact-form-button" value="Send" onclick="contactForm.sendEmail();"></input>
+                <!-- <input type="hidden" name="_subject" value="bbworks.github.io"></input> -->
+                <!-- <input type="hidden" name="_next" value="/thankYou.html"></input> -->
+                <input type="text" name="_gotcha" style="display:none" />
+              </form>
+            </div>
+          </section>
+        </div>
+      </main>

@@ -1,0 +1,39 @@
+:root {
+  /* standard colors */
+  --primary-color:           #8b0000; /* rgb(139,0,0) "darkred" //##3774ce */
+  /* --secondary-color:         ; */
+  --lighter-color:           #f5f5f5; /* rgb(245,245,245) */
+  --medium-color:            #969696; /* rgb(150,150,150) */
+  --dark-color:              #323232; /* rgb(50,50,50); */
+
+  /* site colors */
+  --dark-text-color:         var(--dark-color);
+  --light-text-color:        rgb(235,235,235);
+  --muted-text-color:        #808080; /* rgb(128,128,128) "gray" */
+
+  --light-foreground-color:  var(--dark-text-color);
+  --light-background-color:  var(--light-color);
+  --light-background-color-translucent:  rgba(245,245,245,0.8); /*rgb(255,255,255) "white"*/
+
+  --dark-foreground-color:   var(----light-color);
+  --dark-background-color:   var(--dark-text-color);
+
+  --header-foreground-color: var(--dark-text-color);
+  --header-background-color: var(--lighter-color);
+
+  --main-foreground-color: var(--dark-text-color);
+  --main-background-color: var(--lighter-color);
+
+  --footer-accent-color: var(--lighter-color);
+  --footer-foreground-color: var(--medium-color);
+  --footer-background-color: var(--dark-background-color);
+}
+
+$media-width-breakpoints: (
+  //xs: 0,
+  "mobile": 576px, //sm
+  "tablet": 768px, //md
+  "tablet-wide": 992px, //lg
+  "desktop": 1200px, //xl
+  //xxl: 1400px
+) !default;

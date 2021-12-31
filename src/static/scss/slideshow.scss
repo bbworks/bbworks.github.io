@@ -1,0 +1,179 @@
+/*
+Z-INDEX VALUES
+  99 .slideshow-container.slideshow-full-screen
+  3  .slide-left-button, .slide-right-button, .slideshow-dot-container, .slideshow-fullscreen-collapse-button
+	2  .current-slide
+	1  .previous-slide
+*/
+
+.slideshow {
+  /*Maintain a 16:9 aspect ratio, before 640x360
+    by using padding, which references width, not height.
+    This will, however, take up the entire "content" with
+    padding, rendering the container unusable.*/
+	width: 100%;
+	padding-top: 56.25%;
+  position: relative;
+  overflow: hidden;
+  background-color: rgb(50,50,50);
+}
+
+.slide {
+	/*Now that parent container is sided with the aspect ratio,
+    set the position of the child container to absolute,
+    stretch it to the entire size of the parent container,
+    and remove all padding. This "resets" the container.*/
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transition: left 1s;
+  left: 100%;
+  color: white;
+	opacity: hidden; /*hide slides until entering/exiting*/
+	cursor: pointer;
+}
+
+.current-slide {
+  left: 0;
+  z-index: 2;
+}
+
+.previous-slide {
+  left: -100%;
+  z-index: 1;
+}
+
+.slide-image {
+  width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* .slide-number {
+	display: block;
+} */
+
+/* .slide-title {
+	width: 100%;
+	height: 50%;
+	top: 0;
+  bottom: 0;
+  font-size: 2rem;
+  padding: 0 0.25rem;
+} */
+
+.slide-description {
+	position: absolute;
+  bottom: 30%;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.slideshow-arrow-button {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 4rem;
+	padding: 0.5rem 1rem;
+	color: white;
+	background: linear-gradient(90deg, transparent, black);
+	cursor: pointer;
+	z-index: 3;
+	transition: opacity 0.25s;
+	opacity: 0.7;
+}
+
+.slide-left-button {
+	background: linear-gradient(270deg, transparent, black);
+	left: 0;
+}
+
+.slide-right-button {
+	right: 0;
+}
+
+.slide-left-button:hover, .slide-right-button:hover {
+	opacity: 1;
+}
+
+.slideshow-dot-container {
+	background: linear-gradient(180deg, transparent, black);
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 3;
+  padding: 0.5rem;
+	width: 100%;
+	text-align: center;
+  transition: opacity 0.25s;
+	opacity: 0.3;
+}
+
+.slideshow-dot-container:hover {
+  opacity: 0.8;
+}
+
+.slideshow-dot {
+	display: inline-block;
+	width: 0.5rem;
+	height: 0.5rem;
+	cursor: pointer;
+	border-radius: 50%;
+	background-color: white;
+	margin: 0 0.125rem;
+}
+
+.slideshow-dot:hover,
+.slideshow-dot.active {
+	background-color: gray;
+}
+
+.slideshow-fullscreen-collapse-button {
+	position: absolute;
+	display: none;
+	top: 0;
+	right: 0;
+	color: white;
+	padding: 0.5rem;
+	font-size: 1rem;
+	z-index: 3;
+	transition: opacity 0.25s;
+	opacity: 0.5;
+}
+
+.slideshow-fullscreen-collapse-button:hover {
+  opacity: 1;
+}
+
+.slideshow-full-screen {
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  top: 0;
+	left: 0;
+	width: 100%;
+  height: 100%;
+  padding: 2rem;
+  z-index: 99;
+	transition: background-color 0.5s;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.slideshow-full-screen .slide {
+	cursor: auto;
+}
+
+.slideshow-full-screen .slideshow-fullscreen-collapse-button {
+	display: block;
+}
+
+@include media-width("mobile") {
+	.slide-description {
+		font-size: 1rem;
+	}
+}
