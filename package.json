@@ -7,24 +7,34 @@
     "start": "concurrently \"npm run start:server\" \"npm run watch\" --kill-others",
     "watch": "concurrently \"npm run watch:ejs\" \"npm run watch:sass\" \"npm run watch:js\" \"npm run watch:img\" --kill-others",
     "build": "npm run build:ejs && npm run build:sass & npm run build:js & npm run build:img",
+
     "predeploy": "npm run build",
     "deploy": "gh-pages -d public",
-    "start:server": "browser-sync start --server \"public/\" --files \"public/**/*.html\" \"public/css/all.css\" \"public/js/*\" \"public/images/*\" --port 5001",
+
+    "start:server": "browser-sync start --server \"public/\" --files \"public/**/*.html\" \"public/css/all.css\" \"public/js/*\" \"public/images/**/*\" --port 5001",
+
     "watch:ejs": "watch \"npm run build:ejs\" ./src/views/",
     "build:ejs": "ejs-cli -b src/views/routes \"**/*.ejs\" --out public/ -e \"partials/\"",
+
     "watch:sass": "onchange \"src/views/**/*.scss\" \"src/static/scss/**/*.scss\" --exclude \"src/static/scss/all.scss\" -- npm run build:sass",
     "build:sass": "npm run concat:sass & npm run clean:css & npm run compile:sass",
     "concat:sass": "gulp concatenate-sass",
     "clean:css": "del-cli \"public/css/*\" --force",
     "compile:sass": "sass \"src/static/scss/all.scss\" \"public/css/all.css\"",
+
     "watch:js": "onchange \"src/views/**/*.js\" \"src/static/js/*.js\" -- npm run build:js",
     "build:js": "npm run clean:js & npm run copy:js",
     "clean:js": "del-cli \"public/js/*\" --force",
     "copy:js": "copyfiles \"src/views/**/*.js\" \"src/static/js/*.js\" \"public/js\" --flat",
-    "watch:img": "onchange \"src/views/**/*.png\" \"src/views/**/*.jpeg\" \"src/views/**/*.jpg\" \"src/views/**/*.gif\" \"src/views/**/*.svg\" \"src/views/**/*.ico\" \"src/static/images/*.png\" \"src/static/images/*.jpeg\" \"src/static/images/*.jpg\" \"src/static/images/*.gif\" \"images/*.svg\" \"src/static/images/*.ico\" -- npm run build:img",
+
+    "watch:img": "onchange \"src/views/**/*.png\" \"src/views/**/*.jpeg\" \"src/views/**/*.jpg\" \"src/views/**/*.gif\" \"src/views/**/*.svg\" \"src/views/**/*.ico\" \"src/static/images/**/*.png\" \"src/static/images/**/*.jpeg\" \"src/static/images/**/*.jpg\" \"src/static/images/**/*.gif\" \"images/**/*.svg\" \"src/static/images/**/*.ico\" -- npm run build:img",
     "build:img": "npm run clean:img & npm run copy:img",
-    "clean:img": "del-cli \"public/images/*\" --force",
-    "copy:img": "copyfiles \"src/static/images/**/*.png\" \"src/static/images/**/*.jpeg\" \"src/static/images/**/*.jpg\" \"src/static/images/**/*.gif\" \"src/static/images/**/*.svg\" \"src/static/images/**/*.ico\" \"public/images\" --up 3 & copyfiles \"src/views/**/*.png\" \"src/views/**/*.jpeg\" \"src/views/**/*.jpg\" \"src/views/**/*.gif\" \"src/views/**/*.svg\" \"src/views/**/*.ico\"  \"public/images\" --flat"
+    "clean:img": "del-cli \"public/images/**/*\" --force",
+    "copy:img": "copyfiles \"src/static/images/**/**/*.png\" \"src/static/images/**/**/*.jpeg\" \"src/static/images/**/**/*.jpg\" \"src/static/images/**/**/*.gif\" \"src/static/images/**/**/*.svg\" \"src/static/images/**/**/*.ico\" \"public/images\" --up 3 & copyfiles \"src/views/**/*.png\" \"src/views/**/*.jpeg\" \"src/views/**/*.jpg\" \"src/views/**/*.gif\" \"src/views/**/*.svg\" \"src/views/**/*.ico\"  \"public/images\" --flat",
+
+    "watch:other": "onchange \"src/static/**\" --exclude \"src/static/images\" --exclude \"src/static/js\" --exclude \"src/static/scss\" -- npm run build:other",
+    "build:other": "npm run copy:other",
+    "copy:other": "copyfiles \"src/static/*\" --exclude \"src/static/images\" --exclude \"src/static/js\" --exclude \"src/static/scss\" \"public\" --up 2"
   },
   "author": "Bradley Biera",
   "license": "ISC",
