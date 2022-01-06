@@ -7,6 +7,8 @@ const gulp = require('gulp');
 const concatCss = require('gulp-concat-css');
 const concat = require('gulp-concat');
 const clean = require('gulp-clean');
+const minify = require('gulp-clean-css');
+const rename = require('gulp-rename');
 
 
 //Initialize variables
@@ -14,6 +16,7 @@ const publicDirectory = path.resolve("public/");
 const publicCssDirectory = path.join(publicDirectory, "css/");
 const publicCssFiles = path.join(publicCssDirectory, "**/*.css");
 const concatenatedCssFile = path.join(publicCssDirectory, "all.css");
+const concatenatedMinifiedCssFile = path.join(publicCssDirectory, "all.min.css");
 
 const sassDirectory = path.resolve("src/static/scss/");
 const sassViewsDirectory = path.resolve("src/views/");
@@ -23,12 +26,18 @@ const concatenatedSassFile = path.join(sassDirectory, "all.scss");
 
 //Create private functions
 
-//Export "clean-css" task to wipe the concatenated stylesheet,
-// if exists (and fail silently if not)
+//Task to wipe the concatenated stylesheet, if exists (and fail silently if not)
 gulp.task('clean-css', ()=>{
   return gulp.src(concatenatedCssFile, {read: false, allowEmpty: true})
     .pipe(clean({force: true}));
 });
+
+gulp.task('concatenate-css', ()=>{
+  return gulp.src(publicCssFiles)
+    .pipe(concatCss(concatenatedCssFile))
+    .pipe(gulp.dest(publicCssDirectory));
+});
+
 
 gulp.task('clean-concatenated-sass', ()=>{
   return gulp.src(concatenatedSassFile, {read: false, allowEmpty: true})
@@ -38,17 +47,8 @@ gulp.task('clean-concatenated-sass', ()=>{
 
 //Create public functions
 
-//Export "concatenate-css" task that will first
-// clear the concatenated stylesheet, if exists,
-// then re-concatenate it
-gulp.task('concatenate-css',
-  gulp.series('clean-css', ()=>{
-    return gulp.src(publicCssFiles)
-      .pipe(concatCss(concatenatedCssFile))
-      .pipe(gulp.dest(publicCssDirectory));
-  })
-);
-
+//Task that will first clear the concatenated stylesheet,
+// if exists, then re-concatenate it
 gulp.task('concatenate-sass',
   gulp.series('clean-concatenated-sass', ()=>{
     return gulp.src([
@@ -67,3 +67,34 @@ gulp.task('concatenate-sass',
       .pipe(gulp.dest(sassDirectory));
   })
 );
+
+gulp.task('minify-css', ()=>{
+  return gulp.src(concatenatedCssFile)
+    .pipe(minify({debug: true}, (details) => {
+      const convertBytesToStringWithUnit = (bytes)=>{
+        if(Number.isNaN(Number(bytes))) return null;
+
+        //Initialize the possible units and the default unit
+        const units = {
+          KB: 1024,
+          MB: 1024**2,
+          GB: 1024**3,
+          TB: 1024**4,
+        };
+
+        const defaultUnit = "KB";
+
+        //Starting from largest unit decreasing,
+        // find the most appropriately-sized unit
+        // (i.e. final value is greater than 1)
+        const [unit, divisor] = Object.entries(units).reverse().find(([unit,amount])=>bytes / amount > 1) || [defaultUnit, units[defaultUnit]];
+
+        return `${(bytes/divisor).toFixed(1)} ${unit}`;
+      };
+
+      console.log(` >${details.name}: ${convertBytesToStringWithUnit(details.stats.originalSize)}`);
+      console.log(` >${details.name}: ${convertBytesToStringWithUnit(details.stats.minifiedSize)}`);
+    }))
+    .pipe(rename(concatenatedMinifiedCssFile))
+    .pipe(gulp.dest(publicCssDirectory));
+});
