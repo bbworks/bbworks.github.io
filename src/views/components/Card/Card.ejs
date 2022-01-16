@@ -1,0 +1,20 @@
+          <div class="card">
+            <div class="card-image">
+              <% images.forEach(image=>{ %>
+              <% if (image.type === "img") { %>
+              <img class="home-view-section-icon home-view-section-icon-image" src="<%- image.src %>" />
+              <% } else if (image.type === "icon") { %>
+              <i class="home-view-section-icon home-view-section-icon-i <%- image.class %>"></i>
+              <% } %>
+              <% }); %>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title"><%- title %></h3>
+              <div class="card-text">
+                <%- textHTML %>
+              </div>
+              <a class="call-to-action" href="<%- cta.link %>" target="_blank" title="<%- cta.tooltip %>">
+                  <%- cta.text %><i class="fa fa-arrow-circle-right"></i>
+              </a>
+            </div>
+          </div>

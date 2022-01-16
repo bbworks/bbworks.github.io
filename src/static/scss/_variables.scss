@@ -1,39 +1,49 @@
-:root {
-  /* standard colors */
-  --primary-color:           #8b0000; /* rgb(139,0,0) "darkred" //##3774ce */
-  /* --secondary-color:         ; */
-  --lighter-color:           #f5f5f5; /* rgb(245,245,245) */
-  --medium-color:            #969696; /* rgb(150,150,150) */
-  --dark-color:              #323232; /* rgb(50,50,50); */
+/* standard colors */
+$primary-color:                       #8b0000; /* rgb(139,0,0) "darkred" //##3774ce */
 
-  /* site colors */
-  --dark-text-color:         var(--dark-color);
-  --light-text-color:        rgb(235,235,235);
-  --muted-text-color:        #808080; /* rgb(128,128,128) "gray" */
+/* $secondary-color */
+$light-color:                         #ffffff; /* rgb(255,255,255) */
+$lighter-color:                       #f5f5f5; /* rgb(245,245,245) */
+$medium-color:                        #969696; /* rgb(150,150,150) */
+$dark-color:                          #323232; /* rgb(50,50,50); */
 
-  --light-foreground-color:  var(--dark-text-color);
-  --light-background-color:  var(--light-color);
-  --light-background-color-translucent:  rgba(245,245,245,0.8); /*rgb(255,255,255) "white"*/
+/* site colors */
+$dark-text-color:                     $dark-color;
+$light-text-color:                    rgb(235,235,235);
+$muted-text-color:                    #808080; /* rgb(128,128,128) "gray" */
 
-  --dark-foreground-color:   var(----light-color);
-  --dark-background-color:   var(--dark-text-color);
+$light-foreground-color:              $dark-text-color;
+$light-background-color:              $light-color;
+$light-background-color-translucent:  rgba(245,245,245,0.8); /*rgb(255,255,255) "white"*/
 
-  --header-foreground-color: var(--dark-text-color);
-  --header-background-color: var(--lighter-color);
+$dark-foreground-color:               $light-color;
+$dark-background-color:               $dark-text-color;
 
-  --main-foreground-color: var(--dark-text-color);
-  --main-background-color: var(--lighter-color);
+$header-foreground-color:             $dark-text-color;
+$header-background-color:             $lighter-color;
 
-  --footer-accent-color: var(--lighter-color);
-  --footer-foreground-color: var(--medium-color);
-  --footer-background-color: var(--dark-background-color);
-}
+$main-foreground-color:               $dark-text-color;
+$main-background-color:               $lighter-color;
+
+$footer-accent-color:                 $lighter-color;
+$footer-foreground-color:             $medium-color;
+$footer-background-color:             $dark-background-color;
+
+$showcase-color:                      rgb(131,140,191);
+$slant-size:                          4rem;
 
 $media-width-breakpoints: (
-  //xs: 0,
   "mobile": 576px, //sm
   "tablet": 768px, //md
   "tablet-wide": 992px, //lg
   "desktop": 1200px, //xl
-  //xxl: 1400px
+  "desktop-wide": 1400px //xxl
+) !default;
+
+$container-max-widths: (
+  "mobile": 540px, //sm
+  "tablet": 720px, //md
+  "tablet-wide": 960px, //lg
+  "desktop": 1140px, //xl
+  "desktop-wide": 1320px //xxl
 ) !default;

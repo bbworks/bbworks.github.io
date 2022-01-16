@@ -1,69 +1,66 @@
-/*-----------
-//  HOME/INDEX
-------------------------------*/
+.home-view {
+  .home-view-section {
+    padding: 3rem 4rem;
+    padding-bottom: 5rem;
 
-.home-section {
-  padding: 1rem;
-}
+    .home-view-section-icon {
+      margin: 0 0.25rem;
 
-.summary {
-  color: var(--muted-text-color);
-  text-align: center;
-  font-weight: normal;
-}
+      &.home-view-section-icon-image {
+        width: 4rem;
+        height: 4rem;
+      }
 
-.summary-line {
-  font-size: 1rem;
-}
+      &.home-view-section-icon-i {
+        font-size: 4rem;
 
-.summary-subline {
-  font-size: 0.8rem;
-}
+        &.html5-icon {
+          color: #e34f26; /*#fb7a5a*/
+        }
 
-.home-section-header {
-  color: var(--primary-color);
-  text-align: right;
-  margin: 0.5rem 0;
-}
+        &.css3-icon {
+          color: #309ed9; /*#63bced*/
+        }
 
-.home-section-icon-container {
-  text-align: center;
-}
+        &.js-icon {
+          color: #f8dc3d;
+          background-color: #2e2e2c;
+        }
 
-.home-section-icon {
-  margin: 0 0.25rem;
-}
+        &.git-icon {
+          color: #f05133;
+        }
 
-.home-section-icon-i {
-  font-size: 4rem;
-}
+        &.github-icon {
+          color: black;
+        }
+      }
+    }
 
-.home-section-icon-image {
-  width: 4rem;
-  height: 4rem;
-}
+    .home-view-column-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 8rem;
+    }
 
-.home-section-icon-i.fab {
-  /* background-color: white; */
-}
+    .home-view-column-text {
+      color: rgb(50,50,50);
 
-.home-section-icon-i.fab.fa-html5 {
-  color: #e34f26; /*#fb7a5a*/
-}
+      .home-view-column-text-heading {
+        font-size: 2.25rem;
+        margin-bottom: 1rem;
+      }
 
-.home-section-icon-i.fab.fa-css3-alt {
-  color: #309ed9; /*#63bced*/
-}
+      .home-view-column-text-paragraph {
+        font-size: 1rem;
+      }
+    }
+  }
 
-.home-section-icon-i.fab.fa-js {
-  color: #f8dc3d;
-  background-color: #2e2e2c;
-}
-
-.home-section-icon-i.fab.fa-git-alt {
-  color: #f05133;
-}
-
-.home-section-icon-i.fab.fa-github {
-  color: black;
+  @include media-width("tablet") {
+    .home-view-section {
+      padding: 3rem 2rem;
+    }
+  }
 }

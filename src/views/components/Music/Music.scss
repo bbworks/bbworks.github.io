@@ -1,50 +1,72 @@
-/*-----------
-//  MUSIC
-------------------------------*/
+.music-view {
+	.music-video-wrapper {
+		/*Create a wrapper to determine the width for aspect ratio.*/
+		flex: 1 0 60%;
+		width: 100%;
+		align-self: flex-start; //bring centered flex alignment back to top
 
-.music-video-wrapper {
-	/*Create a wrapper to determine the width for aspect ratio.*/
-	width: 60%;
-}
+		&-right {
+			margin-left: 1rem; //force margins based on order (not HTML order)
+			margin-right: 0; //force margins based on order (not HTML order)
+		}
 
-.music-video-container {
-	/*Maintain a 16:9 aspect ratio, before 640x360
-      by using padding, which references width, not height.
-      This will, however, take up the entire "content" with
-      padding, rendering the container unusable.*/
-	position: relative;
-	width: 100%;          /*setting width*/
-	padding-top: 56.25%;  /*"setting height"*/
-}
+		.music-video-container {
+			/*Maintain a 16:9 aspect ratio, before 640x360
+		      by using padding, which references width, not height.
+		      This will, however, take up the entire "content" with
+		      padding, rendering the container unusable.*/
+			position: relative;
+			width: 100%;          /*setting width*/
+			padding-top: 56.25%;  /*"setting height"*/
 
-.music-video-container iframe {
-	/*Now that parent container is sided with the aspect ratio,
-      set the position of the child container to absolute,
-      stretch it to the entire size of the parent container,
-      and remove all padding. This "resets" the container.*/
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
+			.music-video-iframe {
+				/*Now that parent container is sided with the aspect ratio,
+			      set the position of the child container to absolute,
+			      stretch it to the entire size of the parent container,
+			      and remove all padding. This "resets" the container.*/
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
 
-.music-video-wrapper-left {
-	float: left;
-  margin-right: 1rem;
-  margin-bottom: 0.5rem;
-}
+	.music-video-description {
+		flex: 1 0 30%;
+		align-self: flex-start; //bring centered flex alignment back to top
 
-.music-video-wrapper-right {
-	float: right;
-  margin-left: 1rem;
-  margin-bottom: 0.5rem;
-}
+		.music-video-title {
+			font-size: 1.5rem;
+  		font-style: italic;
+		}
 
-.music-title {
-  font-style: italic;
-}
+		.music-video-artist {
+			font-size: 1.25rem;
+		  font-weight: normal;
+		  margin-left: 0.25rem;
+		}
 
-.music-description {
-  padding-top: 0.5rem;
+		.music-video-type {
+			font-size: 0.875rem;
+			text-align: right;
+			border-top: 1px solid gray;
+			margin-top: 0.25rem;
+			padding-top: 0.25rem;
+			padding-right: 1rem;
+		}
+
+		.music-video-summary {
+			padding-left: 2rem;
+	    margin-top: 1rem;
+	    text-indent: -1rem;
+		}
+	}
+
+	@include media-width("tablet") {
+		.music-video-wrapper-right {
+
+		}
+	}
 }

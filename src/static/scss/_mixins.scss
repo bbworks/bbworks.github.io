@@ -1,2 +1,7 @@
 //##_mixins.scss##
 
+@mixin focus($selector) {
+  #{$selector}:not([tabindex="-1"]):focus {
+    @content;
+  }
+}
