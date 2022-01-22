@@ -21,6 +21,17 @@ button {
   cursor: pointer;
 }
 
+//Reset non-inherited colors (created by browser)
+// Some tags (input,select,etc.) have defaults that are NOT "inherit"
+input,
+select {
+  color: inherit;
+}
+
+ul {
+  list-style-type: none;
+}
+
 //Default hover & focus styles
 @include focus("a[href]") {
   outline: none;

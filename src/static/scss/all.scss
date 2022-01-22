@@ -290,6 +290,17 @@ button {
   cursor: pointer;
 }
 
+//Reset non-inherited colors (created by browser)
+// Some tags (input,select,etc.) have defaults that are NOT "inherit"
+input,
+select {
+  color: inherit;
+}
+
+ul {
+  list-style-type: none;
+}
+
 //Default hover & focus styles
 @include focus("a[href]") {
   outline: none;
@@ -347,6 +358,13 @@ iframe,
   font-size: 2.25rem;
   font-family: 'Roboto', serif;
   font-weight: normal;
+}
+
+.ul {
+  list-style-type: initial;
+  margin-block-start: 1rem;
+  margin-block-end: 1rem;
+  padding-inline-start: 40px;
 }
 
 .horizontal-rule {
@@ -629,10 +647,6 @@ $slant-size: 4rem;
 }
 
 .cta-bttn {
-  &, & * {
-    color: $text-light-color;
-  }
-
   display: inline-block;
   background-color: $primary-color;
   min-width: 5rem;
@@ -640,6 +654,7 @@ $slant-size: 4rem;
   margin-top: 1.5rem;
   border: none;
   border-radius: 0.5rem;
+  color: $text-light-color;
   text-align: right;
   font-size: 0.75rem;
   font-weight: bold;
@@ -651,7 +666,7 @@ $slant-size: 4rem;
 
 // Set default styles
 * {
-  color: $text-dark-color; //Some tags (input,select,etc.) have defaults that are NOT "inherit"; must purposely reset *
+
 }
 
 // Set default body styles
@@ -661,6 +676,7 @@ body {
   justify-content: flex-start;
   align-items: flex-start;
   min-height: 100vh;
+  color: $text-dark-color;
   background-color: $main-bg-color;
   overflow-x: hidden;
 }
@@ -688,12 +704,6 @@ h5 {
 
 h6 {
   font-size: $fs-h6;
-}
-
-ul {
-  margin-block-start: 1rem;
-  margin-block-end: 1rem;
-  padding-inline-start: 40px;
 }
 
 .about-view {
@@ -854,7 +864,6 @@ ul {
 		align-items: center;
 		font-size: 0.75rem;
 		margin-top: 2rem;
-		list-style-type: none;
 	}
 
 	.footer-social {
@@ -1234,7 +1243,6 @@ ul {
   }
 
   .portfolio-project-tech-list {
-    list-style-type: none;
     font-size: 0.75rem;
   }
 
