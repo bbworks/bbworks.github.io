@@ -1,4 +1,4 @@
-.questions-showcase {
+.get-in-touch-section {
 	//Override home section padding
 	&.showcase {
 		padding-top: 3rem;
@@ -6,12 +6,4 @@
 	}
 
 	text-align: center;
-
-	&-title {
-		font-size: 3rem;
-	}
-
-	&-text {
-		margin-top: 1rem;
-	}
 }

@@ -1,10 +1,17 @@
 .showcase {
-	background-color: $showcase-color;
-	padding-bottom: 1rem!important; // need to override base .section padding
-
-	&, & * {
-		color: white;
+	//Override home section padding
+	&.home-view-section {
+		padding-top: 3rem;
+		padding-bottom: 1rem;
 	}
+
+	& .container-row > * {
+		flex: 1 0 0;
+		text-align: center;
+	}
+
+	color: white;
+	background-color: $showcase-color;
 
 	.showcase-title {
 		font-size: 4rem;
@@ -14,7 +21,7 @@
 		font-size: 1.5rem;
 	}
 
-	.showcase-text {
+	.showcase-paragraph {
 		font-size: 0.8rem;
 		margin-top: 1rem;
 	}
@@ -40,11 +47,15 @@
 
 	.showcase-image {
 		display: block;
-	  width: 100%;
+		width: 100%;
+	  max-width: 600px;
 	}
 
 	@include media-width("mobile") {
-		padding-bottom: 0.75rem!important; // need to override base .section padding
+		//Override home section padding
+		&.home-view-section {
+			padding-bottom: 0.75rem;
+		}
 
 		.showcase-text {
 			text-align: center;
@@ -56,7 +67,6 @@
 
 	  .showcase-image-container {
 	    height: 15rem;
-	    overflow: hidden;
 	  }
 
 		.showcase-image {

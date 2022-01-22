@@ -747,96 +747,6 @@ h6 {
   }
 }
 
-.card-group {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  flex-wrap: wrap;
-  align-content: center;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  flex: 1 0 30%; /*each card will be the same width (flex-grow: 1; flex-shrink: 0; flex-basis: 33%; //same size, don't shrink, starting at 1/3 the width)*/
-  margin: 0 0.25rem;
-  background-color: white;
-  border: 1px solid rgb(225,225,225);
-  border-radius: 1rem;
-  max-width: 400px;
-  overflow: hidden;
-}
-
-.card-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(235,235,235);
-  /* border-radius: 0.5rem; */
-  min-height: 7rem;
-  max-width: 500px;
-}
-
-.card-body {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  flex-grow: 1; /*grow the rest of the card height*/
-  padding: 1.5rem;
-  padding-bottom: 0.5rem;
-}
-
-.card-title {
-  color: $primary-color;
-  font-size: 1.25rem;
-  font-weight: lighter;
-  margin-bottom: 0.5rem;
-}
-
-.card-text {
-  color: rgb(50,50,50);
-  font-size: 0.8rem;
-  margin-bottom: 1rem;
-}
-
-.card-text ul {
-  font-size: 0.7rem;
-}
-
-@include media-width("mobile") {
-  .card-group {
-    flex-direction: column;
-  }
-
-  .card {
-    margin: 0.25rem;
-  }
-}
-
-.contact-view {
-  .contact-image {
-    display: block;
-    width: 90%;
-    margin: 0 auto;
-  }
-
-  .contact-email {
-    text-align: right;
-    padding-right: 1rem;
-  }
-
-  .contact-email a {
-    font-weight: bold;
-  }
-
-  .contact-email i {
-    color: rgb(0,111,192);
-  }
-
-  
-}
-
 .footer {
 	background-color: $footer-bg-color;
 	width: 100%;
@@ -934,12 +844,104 @@ h6 {
 	}
 }
 
-.get-in-touch-section {
-	text-align: center;
+.card-group {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  align-content: center;
+}
 
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1 0 30%; /*each card will be the same width (flex-grow: 1; flex-shrink: 0; flex-basis: 33%; //same size, don't shrink, starting at 1/3 the width)*/
+  margin: 0 0.25rem;
+  background-color: white;
+  border: 1px solid rgb(225,225,225);
+  border-radius: 1rem;
+  max-width: 400px;
+  overflow: hidden;
+}
+
+.card-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(235,235,235);
+  /* border-radius: 0.5rem; */
+  min-height: 7rem;
+  max-width: 500px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-grow: 1; /*grow the rest of the card height*/
+  padding: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.card-title {
+  color: $primary-color;
+  font-size: 1.25rem;
+  font-weight: lighter;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  color: rgb(50,50,50);
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.card-text ul {
+  font-size: 0.7rem;
+}
+
+@include media-width("mobile") {
+  .card-group {
+    flex-direction: column;
+  }
+
+  .card {
+    margin: 0.25rem;
+  }
+}
+
+.contact-view {
+  .contact-image {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .contact-email {
+    text-align: right;
+    padding-right: 1rem;
+  }
+
+  .contact-email a {
+    font-weight: bold;
+  }
+
+  .contact-email i {
+    color: rgb(0,111,192);
+  }
+
+  
+}
+
+.get-in-touch-section {
+	//Override home section padding
 	&.showcase {
+		padding-top: 3rem;
 		padding-bottom: 3rem;
 	}
+
+	text-align: center;
 }
 
 .header {
@@ -1197,6 +1199,24 @@ h6 {
 	}
 }
 
+.questions-showcase {
+	//Override home section padding
+	&.showcase {
+		padding-top: 3rem;
+		padding-bottom: 3rem;
+	}
+
+	text-align: center;
+
+	&-title {
+		font-size: 3rem;
+	}
+
+	&-text {
+		margin-top: 1rem;
+	}
+}
+
 .portfolio-view {
   .portfolio-section {
     word-wrap: break-word;
@@ -1277,29 +1297,20 @@ h6 {
   }
 }
 
-.questions-showcase {
-	text-align: center;
-
-	&.showcase {
-		padding-bottom: 3rem;
-	}
-
-	&-title {
-		font-size: 3rem;
-	}
-
-	&-text {
-		margin-top: 1rem;
-	}
-}
-
 .showcase {
-	background-color: $showcase-color;
-	padding-bottom: 1rem!important; // need to override base .section padding
-
-	&, & * {
-		color: white;
+	//Override home section padding
+	&.home-view-section {
+		padding-top: 3rem;
+		padding-bottom: 1rem;
 	}
+
+	& .container-row > * {
+		flex: 1 0 0;
+		text-align: center;
+	}
+
+	color: white;
+	background-color: $showcase-color;
 
 	.showcase-title {
 		font-size: 4rem;
@@ -1309,7 +1320,7 @@ h6 {
 		font-size: 1.5rem;
 	}
 
-	.showcase-text {
+	.showcase-paragraph {
 		font-size: 0.8rem;
 		margin-top: 1rem;
 	}
@@ -1335,11 +1346,15 @@ h6 {
 
 	.showcase-image {
 		display: block;
-	  width: 100%;
+		width: 100%;
+	  max-width: 600px;
 	}
 
 	@include media-width("mobile") {
-		padding-bottom: 0.75rem!important; // need to override base .section padding
+		//Override home section padding
+		&.home-view-section {
+			padding-bottom: 0.75rem;
+		}
 
 		.showcase-text {
 			text-align: center;
@@ -1351,7 +1366,6 @@ h6 {
 
 	  .showcase-image-container {
 	    height: 15rem;
-	    overflow: hidden;
 	  }
 
 		.showcase-image {
