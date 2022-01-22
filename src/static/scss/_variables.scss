@@ -1,37 +1,195 @@
-/* standard colors */
-$primary-color:                       #8b0000; /* rgb(139,0,0) "darkred" //##3774ce */
+//##_variables.scss##
 
-/* $secondary-color */
-$light-color:                         #ffffff; /* rgb(255,255,255) */
-$lighter-color:                       #f5f5f5; /* rgb(245,245,245) */
-$medium-color:                        #969696; /* rgb(150,150,150) */
-$dark-color:                          #323232; /* rgb(50,50,50); */
+// Colors
+  //from Bootstrap v5.0.1
+$white:       #ffffff !default;
+$gray-100:    #f8f9fa !default;
+$gray-200:    #e9ecef !default;
+$gray-300:    #dee2e6 !default;
+$gray-400:    #ced4da !default;
+$gray-500:    #adb5bd !default;
+$gray-600:    #6c757d !default;
+$gray-700:    #495057 !default;
+$gray-800:    #343a40 !default;
+$gray-900:    #212529 !default;
+$black:       #000000 !default;
 
-/* site colors */
-$dark-text-color:                     $dark-color;
-$light-text-color:                    rgb(235,235,235);
-$muted-text-color:                    #808080; /* rgb(128,128,128) "gray" */
+$blue:        #0d6efd !default;
+$indigo:      #6610f2 !default;
+$purple:      #6f42c1 !default;
+$pink:        #d63384 !default;
+$red:         #dc3545 !default;
+$orange:      #fd7e14 !default;
+$yellow:      #ffc107 !default;
+$green:       #198754 !default;
+$teal:        #20c997 !default;
+$cyan:        #0dcaf0 !default;
 
-$light-foreground-color:              $dark-text-color;
-$light-background-color:              $light-color;
-$light-background-color-translucent:  rgba(245,245,245,0.8); /*rgb(255,255,255) "white"*/
+$blue-100:    tint-color($blue, 80%) !default;  //#cfe2ff
+$blue-200:    tint-color($blue, 60%) !default;  //#9ec5fe
+$blue-300:    tint-color($blue, 40%) !default;  //#6ea8fe
+$blue-400:    tint-color($blue, 20%) !default;  //#3d8bfd
+$blue-500:    $blue !default;  //#0d6efd
+$blue-600:    shade-color($blue, 20%) !default;  //#0a58ca
+$blue-700:    shade-color($blue, 40%) !default;  //#084298
+$blue-800:    shade-color($blue, 60%) !default;  //#052c65
+$blue-900:    shade-color($blue, 80%) !default;  //#031633
 
-$dark-foreground-color:               $light-color;
-$dark-background-color:               $dark-text-color;
+$indigo-100:  tint-color($indigo, 80%) !default;  //#e0cffc
+$indigo-200:  tint-color($indigo, 60%) !default;  //#c29ffa
+$indigo-300:  tint-color($indigo, 40%) !default;  //#a370f7
+$indigo-400:  tint-color($indigo, 20%) !default;  //#8540f5
+$indigo-500:  $indigo !default;  //#6610f2
+$indigo-600:  shade-color($indigo, 20%) !default;  //#520dc2
+$indigo-700:  shade-color($indigo, 40%) !default;  //#3d0a91
+$indigo-800:  shade-color($indigo, 60%) !default;  //#290661
+$indigo-900:  shade-color($indigo, 80%) !default;  //#140330
 
-$header-foreground-color:             $dark-text-color;
-$header-background-color:             $lighter-color;
+$purple-100:  tint-color($purple, 80%) !default;  //#e2d9f3
+$purple-200:  tint-color($purple, 60%) !default;  //#c5b3e6
+$purple-300:  tint-color($purple, 40%) !default;  //#a98eda
+$purple-400:  tint-color($purple, 20%) !default;  //#8c68cd
+$purple-500:  $purple !default;  //#6f42c1
+$purple-600:  shade-color($purple, 20%) !default;  //#59359a
+$purple-700:  shade-color($purple, 40%) !default;  //#432874
+$purple-800:  shade-color($purple, 60%) !default;  //#2c1a4d
+$purple-900:  shade-color($purple, 80%) !default;  //#160d27
 
-$main-foreground-color:               $dark-text-color;
-$main-background-color:               $lighter-color;
+$pink-100:    tint-color($pink, 80%) !default;  //#f7d6e6
+$pink-200:    tint-color($pink, 60%) !default;  //#efadce
+$pink-300:    tint-color($pink, 40%) !default;  //#e685b5
+$pink-400:    tint-color($pink, 20%) !default;  //#de5c9d
+$pink-500:    $pink !default;  //#d63384
+$pink-600:    shade-color($pink, 20%) !default;  //#ab296a
+$pink-700:    shade-color($pink, 40%) !default;  //#801f4f
+$pink-800:    shade-color($pink, 60%) !default;  //#561435
+$pink-900:    shade-color($pink, 80%) !default;  //#2b0a1a
 
-$footer-accent-color:                 $lighter-color;
-$footer-foreground-color:             $medium-color;
-$footer-background-color:             $dark-background-color;
+$red-100:     tint-color($red, 80%) !default;  //#f8d7da
+$red-200:     tint-color($red, 60%) !default;  //#f1aeb5
+$red-300:     tint-color($red, 40%) !default;  //#ea868f
+$red-400:     tint-color($red, 20%) !default;  //#e35d6a
+$red-500:     $red !default;  //#dc3545
+$red-600:     shade-color($red, 20%) !default;  //#b02a37
+$red-700:     shade-color($red, 40%) !default;  //#842029
+$red-800:     shade-color($red, 60%) !default;  //#58151c
+$red-900:     shade-color($red, 80%) !default;  //#2c0b0e
 
-$showcase-color:                      rgb(131,140,191);
-$slant-size:                          4rem;
+$orange-100:  tint-color($orange, 80%) !default;  //#ffe5d0
+$orange-200:  tint-color($orange, 60%) !default;  //#fecba1
+$orange-300:  tint-color($orange, 40%) !default;  //#feb272
+$orange-400:  tint-color($orange, 20%) !default;  //#fd9843
+$orange-500:  $orange !default;  //#fd7e14
+$orange-600:  shade-color($orange, 20%) !default;  //#ca6510
+$orange-700:  shade-color($orange, 40%) !default;  //#984c0c
+$orange-800:  shade-color($orange, 60%) !default;  //#653208
+$orange-900:  shade-color($orange, 80%) !default;  //#331904
 
+$yellow-100:  tint-color($yellow, 80%) !default;  //#fff3cd
+$yellow-200:  tint-color($yellow, 60%) !default;  //#ffe69c
+$yellow-300:  tint-color($yellow, 40%) !default;  //#ffda6a
+$yellow-400:  tint-color($yellow, 20%) !default;  //#ffcd39
+$yellow-500:  $yellow !default;  //#ffc107
+$yellow-600:  shade-color($yellow, 20%) !default;  //#cc9a06
+$yellow-700:  shade-color($yellow, 40%) !default;  //#997404
+$yellow-800:  shade-color($yellow, 60%) !default;  //#664d03
+$yellow-900:  shade-color($yellow, 80%) !default;  //#332701
+
+$green-100:   tint-color($green, 80%) !default;  //#d1e7dd
+$green-200:   tint-color($green, 60%) !default;  //#a3cfbb
+$green-300:   tint-color($green, 40%) !default;  //#75b798
+$green-400:   tint-color($green, 20%) !default;  //#479f76
+$green-500:   $green !default;  //#198754
+$green-600:   shade-color($green, 20%) !default;  //#146c43
+$green-700:   shade-color($green, 40%) !default;  //#0f5132
+$green-800:   shade-color($green, 60%) !default;  //#0a3622
+$green-900:   shade-color($green, 80%) !default;  //#051b11
+
+$teal-100:    tint-color($teal, 80%) !default;  //#d2f4ea
+$teal-200:    tint-color($teal, 60%) !default;  //#a6e9d5
+$teal-300:    tint-color($teal, 40%) !default;  //#79dfc1
+$teal-400:    tint-color($teal, 20%) !default;  //#4dd4ac
+$teal-500:    $teal !default;  //#20c997
+$teal-600:    shade-color($teal, 20%) !default;  //#1aa179
+$teal-700:    shade-color($teal, 40%) !default;  //#13795b
+$teal-800:    shade-color($teal, 60%) !default;  //#0d503c
+$teal-900:    shade-color($teal, 80%) !default;  //#06281e
+
+$cyan-100:    tint-color($cyan, 80%) !default;  //#cff4fc
+$cyan-200:    tint-color($cyan, 60%) !default;  //#9eeaf9
+$cyan-300:    tint-color($cyan, 40%) !default;  //#6edff6
+$cyan-400:    tint-color($cyan, 20%) !default;  //#3dd5f3
+$cyan-500:    $cyan !default;  //#0dcaf0
+$cyan-600:    shade-color($cyan, 20%) !default;  //#0aa2c0
+$cyan-700:    shade-color($cyan, 40%) !default;  //#087990
+$cyan-800:    shade-color($cyan, 60%) !default;  //#055160
+$cyan-900:    shade-color($cyan, 80%) !default;  //#032830
+
+
+// Alert colors
+$alert-info-dark-color:      #31708f;
+$alert-info-light-color:     #d9edf7;
+$alert-success-dark-color:   #4f8a0c;
+$alert-success-light-color:  #dff2bf;
+$alert-warning-dark-color:   #9f6000;
+$alert-warning-light-color:  #feefb3;
+$alert-error-dark-color:     #d8000c;
+$alert-error-light-color:    #ffbaba;
+
+
+// Site standard colors
+$primary-color:        #8b0000;
+$secondary-color:      #407899;
+$light-color:          $gray-100;
+$muted-light-color:    $gray-200;
+$medium-color:         $gray-500;
+$muted-dark-color:     $gray-600;
+$dark-color:           $gray-800;
+
+//Outline color
+$outline-color:  lightblue;
+
+// Site content colors
+$text-dark-color:      $dark-color;
+$text-muted-color:     $muted-dark-color;
+$text-light-color:     $muted-light-color;
+
+$bg-light-color:       $light-color;
+$bg-muted-color:       $muted-dark-color;
+$bg-dark-color:        $dark-color;
+
+$header-text-color:    $text-dark-color;
+$header-bg-color:      $bg-light-color;
+$header-nav-bg-color:  rgba($bg-light-color, 0.8);
+
+$main-text-color:      $text-dark-color;
+$main-bg-color:        $bg-light-color;
+
+$footer-text-color:    $light-color;
+$footer-muted-color:   $medium-color;
+$footer-bg-color:      $bg-dark-color;
+
+$showcase-color:      $secondary-color;
+
+$section-light-color: $bg-light-color;
+$section-dark-color:  $muted-light-color;
+
+
+
+// Font sizes
+$fs-h1: 3rem;     // 48px
+$fs-h2: 2.25rem;  // 36px
+$fs-h3: 2rem;     // 32px
+$fs-h4: 1.5rem;   // 24px
+$fs-h5: 1.25rem;  // 20px
+$fs-h6: 1rem;     // 16px
+$fs-p: 1rem;      // 16px
+$fs-sm: 0.875rem;  // 12px
+$fs-xs: 0.75rem;  // 12px
+
+
+
+// Media breakpoints
 $media-width-breakpoints: (
   "mobile": 576px, //sm
   "tablet": 768px, //md
@@ -40,6 +198,9 @@ $media-width-breakpoints: (
   "desktop-wide": 1400px //xxl
 ) !default;
 
+
+
+// Container widths
 $container-max-widths: (
   "mobile": 540px, //sm
   "tablet": 720px, //md

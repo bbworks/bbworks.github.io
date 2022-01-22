@@ -1,5 +1,5 @@
 .header {
-  background-color: $header-background-color;
+  background-color: $header-bg-color;
   width: 100%;
 
   .header-container {
@@ -11,8 +11,7 @@
 
   .header-logo {
     display: inline-block;
-    color: $header-foreground-color;
-    font-size: 2.25rem;
+    color: $header-text-color;
   }
 
   .header-nav-container {
@@ -23,13 +22,13 @@
     color: $primary-color;
   	display: inline-block;
   	font-weight: bold;
-  	font-size: 0.875rem;
+  	font-size: $fs-sm;
   	padding: 0.5rem;
     transition: color 0.4s;
 
     &:not(.header-nav-toggle):hover,
     &.current {
-    	color: $header-foreground-color;
+    	color: $header-text-color;
     }
 
     &.current:hover {
@@ -40,7 +39,7 @@
   /* style toggle after .header-nav-item so we can overwrite it */
   .header-nav-toggle {
     display: none;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 
   .header-nav {
@@ -88,6 +87,7 @@
 
     .header-nav-item:not(.header-nav-toggle) {
       display: block;
+      font-size: 1.25rem;
       margin: 2rem 0;
     }
 
@@ -103,7 +103,7 @@
       width: 100%;
       height: unset;
       z-index: 99;
-      background-color: $light-background-color-translucent;
+      background-color: $header-nav-bg-color;
       overflow-y: scroll;
       /* opacity: 0; */
       transition: transform 0.2s;

@@ -26,7 +26,7 @@
 }
 
 .content p, .content ul {
-  color: $dark-background-color;
+  color: $bg-dark-color;
 }
 
 .logo {
@@ -34,31 +34,6 @@
   font-size: 2.25rem;
   font-family: 'Roboto', serif;
   font-weight: normal;
-}
-
-.call-to-action {
-  display: inline-block;
-  min-width: 5rem;
-  color: $light-text-color;
-  background-color: $primary-color;
-  font-size: 0.75rem;
-  font-weight: bold;
-  text-align: right;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 0.5rem;
-  margin-top: 1.5rem;
-}
-
-.card .call-to-action {
-  margin-top: auto;
-  align-self: flex-end;
-}
-
-.call-to-action-icon {
-  color: $light-text-color;
-  background-color: $primary-color;
-  padding-left: 0.5rem;
 }
 
 .horizontal-rule {
@@ -69,13 +44,13 @@
 
 .blockquote {
   color: rgb(75,75,75);
+  background-color: rgba(50,50,50,0.05);
   padding: 1rem 0;
   padding-left: 2rem;
   margin-top: 0.5rem;
   margin-left: 0rem;
-  text-indent: -1rem;
   border-left: 3px solid gray;
-  background-color: rgba(50,50,50,0.05)
+  text-indent: -1rem;
 }
 
 //-------------------------
@@ -83,23 +58,19 @@
 //-------------------------
 
 .view {
-  // background-color: #e3f2fd;
   flex-grow: 1;
   width: 100%;
   margin-top: 3rem; /* to compensate for .header.sticky-top */
 }
 
 .section {
+  background-color: $section-light-color; //explicitly set background-color for .slant (which uses "inherit")
   width: 100%;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 
-  &-light {
-    background-color: $main-background-color;
-  }
-
   &-dark {
-    background-color: rgb(225,225,225);
+    background-color: $section-dark-color;
   }
 }
 
@@ -156,23 +127,32 @@
   }
 }
 
+$slant-size: 4rem;
 .slant {
   @include media-width("mobile") {
     $slant-size: 1rem;
   }
 
-  &-top,
-  &-bottom {
+  @mixin pseudo-slant($topOrBottom) {
+    // Start by making the element the relative positioning
     position: relative;
 
-    &::before,
-    &::after {
+    // Set up the slant
+    #{if($topOrBottom == "top", "&::before", if($topOrBottom == "bottom", "&::after", null))} {
       content: "";
       position: absolute;
       width: 100%;
       height: $slant-size;
       clip-path: polygon(0 100%, 100% 0, 100% 100%);
     }
+  }
+
+  &-top {
+    @include pseudo-slant("top");
+  }
+
+  &-bottom {
+    @include pseudo-slant("bottom");
   }
 
   &-top {
@@ -186,7 +166,7 @@
 
   &-bottom {
     & + * {
-      margin-top: -1rem;
+      // margin-top: -1rem;
     }
 
     &::after {
@@ -227,7 +207,7 @@
   }
 }
 
-.btn {
+.bttn {
   color: white;
   background-color: $primary-color;
   padding: 0.25rem 0.5rem;
@@ -243,10 +223,18 @@
     background-color: rgba(239,239,239, 0.3);
     border: 1px solid rgba(118,118,118,0.3);
   }
-
-  &:focus {
-    outline: none;
-  }
+}
+@include focus(".bttn") {
+  // use of !important to override buttons
+  // that are also a[href] (which has a higher specificity)
+  @include default-focus($important:true);
+  outline-offset: 2px!important;
+}
+@include focus("button") {
+  // use of !important to override buttons
+  // that are also a[href] (which has a higher specificity)
+  @include default-focus($important:true);
+  outline-offset: 2px!important;
 }
 
 .form {
@@ -314,7 +302,7 @@
     height: 2.5rem;
     font-size: 1rem;
     font-weight: bold;
-    color: $light-text-color;
+    color: $text-light-color;
     background-color: $primary-color;
     padding: 0.25rem 1rem;
     border: none;
@@ -324,5 +312,26 @@
   &-button:hover {
     background-color: gray;
     transition: background-color 0.25s;
+  }
+}
+
+.cta-bttn {
+  &, & * {
+    color: $text-light-color;
+  }
+
+  display: inline-block;
+  background-color: $primary-color;
+  min-width: 5rem;
+  padding: 0.5rem 1rem;
+  margin-top: 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  text-align: right;
+  font-size: 0.75rem;
+  font-weight: bold;
+
+  &-icon {
+    margin-left: 0.25rem;
   }
 }

@@ -38,23 +38,22 @@
 		align-self: flex-start; //bring centered flex alignment back to top
 
 		.music-video-title {
-			font-size: 1.5rem;
-  		font-style: italic;
+			font-style: italic;
 		}
 
 		.music-video-artist {
-			font-size: 1.25rem;
-		  font-weight: normal;
+			font-weight: normal;
 		  margin-left: 0.25rem;
 		}
 
 		.music-video-type {
-			font-size: 0.875rem;
 			text-align: right;
-			border-top: 1px solid gray;
-			margin-top: 0.25rem;
 			padding-top: 0.25rem;
 			padding-right: 1rem;
+			margin-top: 0.25rem;
+			border-top: 1px solid gray;
+			font-size: $fs-sm;
+			font-weight: bold;
 		}
 
 		.music-video-summary {

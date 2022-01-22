@@ -1,7 +1,8 @@
 .home-view {
   .home-view-section {
     padding: 3rem 4rem;
-    padding-bottom: 5rem;
+    padding-top: 2rem; // remove some top padding for .slant-top
+    padding-bottom: 4rem; // remove some bottom padding for .slant-top
 
     .home-view-section-icon {
       margin: 0 0.25rem;
@@ -48,12 +49,11 @@
       color: rgb(50,50,50);
 
       .home-view-column-text-heading {
-        font-size: 2.25rem;
         margin-bottom: 1rem;
       }
 
       .home-view-column-text-paragraph {
-        font-size: 1rem;
+        
       }
     }
   }
@@ -61,6 +61,8 @@
   @include media-width("tablet") {
     .home-view-section {
       padding: 3rem 2rem;
+      padding-top: 0; // remove some top padding for .slant-top
+      padding-bottom: 4rem; // remove some bottom padding for .slant-top
     }
   }
 }

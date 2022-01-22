@@ -1,11 +1,11 @@
 .footer {
-	background-color: $footer-background-color;
+	background-color: $footer-bg-color;
 	width: 100%;
   padding: 3rem 4rem;
 
 	&,
 	& * {
-		color: $footer-foreground-color;
+		color: $footer-muted-color;
 	}
 
 	.footer-container {
@@ -16,7 +16,7 @@
 	}
 
 	.footer-logo * {
-		color: $footer-accent-color;
+		color: $footer-text-color;
 	}
 
 	.footer-socials-list {
@@ -73,14 +73,14 @@
 	}
 
 	.footer-nav-item {
-		color: $footer-accent-color;
-		font-size: 0.75rem;
+		color: $footer-text-color;
+		font-size: $fs-xs;
 		transition: color 0.25s;
 	}
 
 	.footer-nav-item:not(:last-child)::after {
 		content: "•";
-		color: $footer-foreground-color;
+		color: $footer-muted-color;
 	  margin: 0 0.5rem
 	}
 
@@ -90,7 +90,7 @@
 	}
 
 	.footer-copyright {
-	  font-size: 0.75rem;
+	  font-size: $fs-xs;
 	  margin-top: 5rem;
 	  margin-bottom: 1rem;
 	}

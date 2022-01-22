@@ -1,37 +1,210 @@
-/* standard colors */
-$primary-color:                       #8b0000; /* rgb(139,0,0) "darkred" //##3774ce */
+//##_builtins.scss##
 
-/* $secondary-color */
-$light-color:                         #ffffff; /* rgb(255,255,255) */
-$lighter-color:                       #f5f5f5; /* rgb(245,245,245) */
-$medium-color:                        #969696; /* rgb(150,150,150) */
-$dark-color:                          #323232; /* rgb(50,50,50); */
+@use "sass:color";
 
-/* site colors */
-$dark-text-color:                     $dark-color;
-$light-text-color:                    rgb(235,235,235);
-$muted-text-color:                    #808080; /* rgb(128,128,128) "gray" */
+// scss-docs-start color-functions
+// Tint a color: mix a color with white
+@function tint-color($color, $weight) {
+  @return color.mix(white, $color, $weight);
+}
 
-$light-foreground-color:              $dark-text-color;
-$light-background-color:              $light-color;
-$light-background-color-translucent:  rgba(245,245,245,0.8); /*rgb(255,255,255) "white"*/
+// Shade a color: mix a color with black
+@function shade-color($color, $weight) {
+  @return color.mix(black, $color, $weight);
+}
 
-$dark-foreground-color:               $light-color;
-$dark-background-color:               $dark-text-color;
+//##_variables.scss##
 
-$header-foreground-color:             $dark-text-color;
-$header-background-color:             $lighter-color;
+// Colors
+  //from Bootstrap v5.0.1
+$white:       #ffffff !default;
+$gray-100:    #f8f9fa !default;
+$gray-200:    #e9ecef !default;
+$gray-300:    #dee2e6 !default;
+$gray-400:    #ced4da !default;
+$gray-500:    #adb5bd !default;
+$gray-600:    #6c757d !default;
+$gray-700:    #495057 !default;
+$gray-800:    #343a40 !default;
+$gray-900:    #212529 !default;
+$black:       #000000 !default;
 
-$main-foreground-color:               $dark-text-color;
-$main-background-color:               $lighter-color;
+$blue:        #0d6efd !default;
+$indigo:      #6610f2 !default;
+$purple:      #6f42c1 !default;
+$pink:        #d63384 !default;
+$red:         #dc3545 !default;
+$orange:      #fd7e14 !default;
+$yellow:      #ffc107 !default;
+$green:       #198754 !default;
+$teal:        #20c997 !default;
+$cyan:        #0dcaf0 !default;
 
-$footer-accent-color:                 $lighter-color;
-$footer-foreground-color:             $medium-color;
-$footer-background-color:             $dark-background-color;
+$blue-100:    tint-color($blue, 80%) !default;  //#cfe2ff
+$blue-200:    tint-color($blue, 60%) !default;  //#9ec5fe
+$blue-300:    tint-color($blue, 40%) !default;  //#6ea8fe
+$blue-400:    tint-color($blue, 20%) !default;  //#3d8bfd
+$blue-500:    $blue !default;  //#0d6efd
+$blue-600:    shade-color($blue, 20%) !default;  //#0a58ca
+$blue-700:    shade-color($blue, 40%) !default;  //#084298
+$blue-800:    shade-color($blue, 60%) !default;  //#052c65
+$blue-900:    shade-color($blue, 80%) !default;  //#031633
 
-$showcase-color:                      rgb(131,140,191);
-$slant-size:                          4rem;
+$indigo-100:  tint-color($indigo, 80%) !default;  //#e0cffc
+$indigo-200:  tint-color($indigo, 60%) !default;  //#c29ffa
+$indigo-300:  tint-color($indigo, 40%) !default;  //#a370f7
+$indigo-400:  tint-color($indigo, 20%) !default;  //#8540f5
+$indigo-500:  $indigo !default;  //#6610f2
+$indigo-600:  shade-color($indigo, 20%) !default;  //#520dc2
+$indigo-700:  shade-color($indigo, 40%) !default;  //#3d0a91
+$indigo-800:  shade-color($indigo, 60%) !default;  //#290661
+$indigo-900:  shade-color($indigo, 80%) !default;  //#140330
 
+$purple-100:  tint-color($purple, 80%) !default;  //#e2d9f3
+$purple-200:  tint-color($purple, 60%) !default;  //#c5b3e6
+$purple-300:  tint-color($purple, 40%) !default;  //#a98eda
+$purple-400:  tint-color($purple, 20%) !default;  //#8c68cd
+$purple-500:  $purple !default;  //#6f42c1
+$purple-600:  shade-color($purple, 20%) !default;  //#59359a
+$purple-700:  shade-color($purple, 40%) !default;  //#432874
+$purple-800:  shade-color($purple, 60%) !default;  //#2c1a4d
+$purple-900:  shade-color($purple, 80%) !default;  //#160d27
+
+$pink-100:    tint-color($pink, 80%) !default;  //#f7d6e6
+$pink-200:    tint-color($pink, 60%) !default;  //#efadce
+$pink-300:    tint-color($pink, 40%) !default;  //#e685b5
+$pink-400:    tint-color($pink, 20%) !default;  //#de5c9d
+$pink-500:    $pink !default;  //#d63384
+$pink-600:    shade-color($pink, 20%) !default;  //#ab296a
+$pink-700:    shade-color($pink, 40%) !default;  //#801f4f
+$pink-800:    shade-color($pink, 60%) !default;  //#561435
+$pink-900:    shade-color($pink, 80%) !default;  //#2b0a1a
+
+$red-100:     tint-color($red, 80%) !default;  //#f8d7da
+$red-200:     tint-color($red, 60%) !default;  //#f1aeb5
+$red-300:     tint-color($red, 40%) !default;  //#ea868f
+$red-400:     tint-color($red, 20%) !default;  //#e35d6a
+$red-500:     $red !default;  //#dc3545
+$red-600:     shade-color($red, 20%) !default;  //#b02a37
+$red-700:     shade-color($red, 40%) !default;  //#842029
+$red-800:     shade-color($red, 60%) !default;  //#58151c
+$red-900:     shade-color($red, 80%) !default;  //#2c0b0e
+
+$orange-100:  tint-color($orange, 80%) !default;  //#ffe5d0
+$orange-200:  tint-color($orange, 60%) !default;  //#fecba1
+$orange-300:  tint-color($orange, 40%) !default;  //#feb272
+$orange-400:  tint-color($orange, 20%) !default;  //#fd9843
+$orange-500:  $orange !default;  //#fd7e14
+$orange-600:  shade-color($orange, 20%) !default;  //#ca6510
+$orange-700:  shade-color($orange, 40%) !default;  //#984c0c
+$orange-800:  shade-color($orange, 60%) !default;  //#653208
+$orange-900:  shade-color($orange, 80%) !default;  //#331904
+
+$yellow-100:  tint-color($yellow, 80%) !default;  //#fff3cd
+$yellow-200:  tint-color($yellow, 60%) !default;  //#ffe69c
+$yellow-300:  tint-color($yellow, 40%) !default;  //#ffda6a
+$yellow-400:  tint-color($yellow, 20%) !default;  //#ffcd39
+$yellow-500:  $yellow !default;  //#ffc107
+$yellow-600:  shade-color($yellow, 20%) !default;  //#cc9a06
+$yellow-700:  shade-color($yellow, 40%) !default;  //#997404
+$yellow-800:  shade-color($yellow, 60%) !default;  //#664d03
+$yellow-900:  shade-color($yellow, 80%) !default;  //#332701
+
+$green-100:   tint-color($green, 80%) !default;  //#d1e7dd
+$green-200:   tint-color($green, 60%) !default;  //#a3cfbb
+$green-300:   tint-color($green, 40%) !default;  //#75b798
+$green-400:   tint-color($green, 20%) !default;  //#479f76
+$green-500:   $green !default;  //#198754
+$green-600:   shade-color($green, 20%) !default;  //#146c43
+$green-700:   shade-color($green, 40%) !default;  //#0f5132
+$green-800:   shade-color($green, 60%) !default;  //#0a3622
+$green-900:   shade-color($green, 80%) !default;  //#051b11
+
+$teal-100:    tint-color($teal, 80%) !default;  //#d2f4ea
+$teal-200:    tint-color($teal, 60%) !default;  //#a6e9d5
+$teal-300:    tint-color($teal, 40%) !default;  //#79dfc1
+$teal-400:    tint-color($teal, 20%) !default;  //#4dd4ac
+$teal-500:    $teal !default;  //#20c997
+$teal-600:    shade-color($teal, 20%) !default;  //#1aa179
+$teal-700:    shade-color($teal, 40%) !default;  //#13795b
+$teal-800:    shade-color($teal, 60%) !default;  //#0d503c
+$teal-900:    shade-color($teal, 80%) !default;  //#06281e
+
+$cyan-100:    tint-color($cyan, 80%) !default;  //#cff4fc
+$cyan-200:    tint-color($cyan, 60%) !default;  //#9eeaf9
+$cyan-300:    tint-color($cyan, 40%) !default;  //#6edff6
+$cyan-400:    tint-color($cyan, 20%) !default;  //#3dd5f3
+$cyan-500:    $cyan !default;  //#0dcaf0
+$cyan-600:    shade-color($cyan, 20%) !default;  //#0aa2c0
+$cyan-700:    shade-color($cyan, 40%) !default;  //#087990
+$cyan-800:    shade-color($cyan, 60%) !default;  //#055160
+$cyan-900:    shade-color($cyan, 80%) !default;  //#032830
+
+
+// Alert colors
+$alert-info-dark-color:      #31708f;
+$alert-info-light-color:     #d9edf7;
+$alert-success-dark-color:   #4f8a0c;
+$alert-success-light-color:  #dff2bf;
+$alert-warning-dark-color:   #9f6000;
+$alert-warning-light-color:  #feefb3;
+$alert-error-dark-color:     #d8000c;
+$alert-error-light-color:    #ffbaba;
+
+
+// Site standard colors
+$primary-color:        #8b0000;
+$secondary-color:      #407899;
+$light-color:          $gray-100;
+$muted-light-color:    $gray-200;
+$medium-color:         $gray-500;
+$muted-dark-color:     $gray-600;
+$dark-color:           $gray-800;
+
+//Outline color
+$outline-color:  lightblue;
+
+// Site content colors
+$text-dark-color:      $dark-color;
+$text-muted-color:     $muted-dark-color;
+$text-light-color:     $muted-light-color;
+
+$bg-light-color:       $light-color;
+$bg-muted-color:       $muted-dark-color;
+$bg-dark-color:        $dark-color;
+
+$header-text-color:    $text-dark-color;
+$header-bg-color:      $bg-light-color;
+$header-nav-bg-color:  rgba($bg-light-color, 0.8);
+
+$main-text-color:      $text-dark-color;
+$main-bg-color:        $bg-light-color;
+
+$footer-text-color:    $light-color;
+$footer-muted-color:   $medium-color;
+$footer-bg-color:      $bg-dark-color;
+
+$showcase-color:      $secondary-color;
+
+$section-light-color: $bg-light-color;
+$section-dark-color:  $muted-light-color;
+
+
+
+// Font sizes
+$fs-h1: 3rem;     // 48px
+$fs-h2: 2.25rem;  // 36px
+$fs-h3: 2rem;     // 32px
+$fs-h4: 1.5rem;   // 24px
+$fs-h5: 1.25rem;  // 20px
+$fs-h6: 1rem;     // 16px
+$fs-p: 1rem;      // 16px
+$fs-sm: 0.875rem;  // 12px
+$fs-xs: 0.75rem;  // 12px
+
+
+
+// Media breakpoints
 $media-width-breakpoints: (
   "mobile": 576px, //sm
   "tablet": 768px, //md
@@ -40,6 +213,9 @@ $media-width-breakpoints: (
   "desktop-wide": 1400px //xxl
 ) !default;
 
+
+
+// Container widths
 $container-max-widths: (
   "mobile": 540px, //sm
   "tablet": 720px, //md
@@ -50,8 +226,16 @@ $container-max-widths: (
 
 //##_mixins.scss##
 
-@mixin focus($selector) {
-  #{$selector}:not([tabindex="-1"]):focus {
+//Create styling mixins
+@mixin default-focus($important:false) {
+  outline: 2px solid $outline-color#{if($important,!important, "")};
+  outline-offset: 0#{if($important,!important, "")};
+  text-decoration: none#{if($important,!important, "")};
+}
+
+//Create functionsl mixins
+@mixin focus($selector:null) {
+  #{if($selector,$selector,null)}:not([tabindex="-1"]):focus {
     @content;
   }
 }
@@ -106,6 +290,27 @@ button {
   cursor: pointer;
 }
 
+//Default hover & focus styles
+@include focus("a[href]") {
+  outline: none;
+  text-decoration: underline;
+}
+
+area[href],
+input:not([disabled]),
+select:not([disabled]),
+textarea:not([disabled]),
+button:not([disabled]),
+iframe,
+[tabindex],
+[contenteditable=true] {
+  &:not([tabindex="-1"]) {
+    &:focus {
+      @include default-focus();
+    }
+  }
+}
+
 //##_utilities.scss##
 
 .strikethrough {
@@ -134,7 +339,7 @@ button {
 }
 
 .content p, .content ul {
-  color: $dark-background-color;
+  color: $bg-dark-color;
 }
 
 .logo {
@@ -142,31 +347,6 @@ button {
   font-size: 2.25rem;
   font-family: 'Roboto', serif;
   font-weight: normal;
-}
-
-.call-to-action {
-  display: inline-block;
-  min-width: 5rem;
-  color: $light-text-color;
-  background-color: $primary-color;
-  font-size: 0.75rem;
-  font-weight: bold;
-  text-align: right;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 0.5rem;
-  margin-top: 1.5rem;
-}
-
-.card .call-to-action {
-  margin-top: auto;
-  align-self: flex-end;
-}
-
-.call-to-action-icon {
-  color: $light-text-color;
-  background-color: $primary-color;
-  padding-left: 0.5rem;
 }
 
 .horizontal-rule {
@@ -177,13 +357,13 @@ button {
 
 .blockquote {
   color: rgb(75,75,75);
+  background-color: rgba(50,50,50,0.05);
   padding: 1rem 0;
   padding-left: 2rem;
   margin-top: 0.5rem;
   margin-left: 0rem;
-  text-indent: -1rem;
   border-left: 3px solid gray;
-  background-color: rgba(50,50,50,0.05)
+  text-indent: -1rem;
 }
 
 //-------------------------
@@ -191,23 +371,19 @@ button {
 //-------------------------
 
 .view {
-  // background-color: #e3f2fd;
   flex-grow: 1;
   width: 100%;
   margin-top: 3rem; /* to compensate for .header.sticky-top */
 }
 
 .section {
+  background-color: $section-light-color; //explicitly set background-color for .slant (which uses "inherit")
   width: 100%;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 
-  &-light {
-    background-color: $main-background-color;
-  }
-
   &-dark {
-    background-color: rgb(225,225,225);
+    background-color: $section-dark-color;
   }
 }
 
@@ -264,23 +440,32 @@ button {
   }
 }
 
+$slant-size: 4rem;
 .slant {
   @include media-width("mobile") {
     $slant-size: 1rem;
   }
 
-  &-top,
-  &-bottom {
+  @mixin pseudo-slant($topOrBottom) {
+    // Start by making the element the relative positioning
     position: relative;
 
-    &::before,
-    &::after {
+    // Set up the slant
+    #{if($topOrBottom == "top", "&::before", if($topOrBottom == "bottom", "&::after", null))} {
       content: "";
       position: absolute;
       width: 100%;
       height: $slant-size;
       clip-path: polygon(0 100%, 100% 0, 100% 100%);
     }
+  }
+
+  &-top {
+    @include pseudo-slant("top");
+  }
+
+  &-bottom {
+    @include pseudo-slant("bottom");
   }
 
   &-top {
@@ -294,7 +479,7 @@ button {
 
   &-bottom {
     & + * {
-      margin-top: -1rem;
+      // margin-top: -1rem;
     }
 
     &::after {
@@ -335,7 +520,7 @@ button {
   }
 }
 
-.btn {
+.bttn {
   color: white;
   background-color: $primary-color;
   padding: 0.25rem 0.5rem;
@@ -351,10 +536,18 @@ button {
     background-color: rgba(239,239,239, 0.3);
     border: 1px solid rgba(118,118,118,0.3);
   }
-
-  &:focus {
-    outline: none;
-  }
+}
+@include focus(".bttn") {
+  // use of !important to override buttons
+  // that are also a[href] (which has a higher specificity)
+  @include default-focus($important:true);
+  outline-offset: 2px!important;
+}
+@include focus("button") {
+  // use of !important to override buttons
+  // that are also a[href] (which has a higher specificity)
+  @include default-focus($important:true);
+  outline-offset: 2px!important;
 }
 
 .form {
@@ -422,7 +615,7 @@ button {
     height: 2.5rem;
     font-size: 1rem;
     font-weight: bold;
-    color: $light-text-color;
+    color: $text-light-color;
     background-color: $primary-color;
     padding: 0.25rem 1rem;
     border: none;
@@ -435,38 +628,113 @@ button {
   }
 }
 
-//Set default body styles
+.cta-bttn {
+  &, & * {
+    color: $text-light-color;
+  }
+
+  display: inline-block;
+  background-color: $primary-color;
+  min-width: 5rem;
+  padding: 0.5rem 1rem;
+  margin-top: 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  text-align: right;
+  font-size: 0.75rem;
+  font-weight: bold;
+
+  &-icon {
+    margin-left: 0.25rem;
+  }
+}
+
+// Set default styles
+* {
+  color: $text-dark-color; //Some tags (input,select,etc.) have defaults that are NOT "inherit"; must purposely reset *
+}
+
+// Set default body styles
 body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   min-height: 100vh;
-  color: $dark-text-color;
-  background-color: $main-background-color;
+  background-color: $main-bg-color;
   overflow-x: hidden;
 }
 
-//Default focus styles
-a[href],
-area[href],
-input:not([disabled]),
-select:not([disabled]),
-textarea:not([disabled]),
-button:not([disabled]),
-iframe,
-[tabindex],
-[contenteditable=true] {
-  &:not([tabindex="-1"]) {
-    &:focus {
-
-    }
-  }
+// Set default typography styles
+h1 {
+  font-size: $fs-h1;
 }
 
-@include focus("a[href]") {
-  outline: none;
-  text-decoration: underline;
+h2 {
+  font-size: $fs-h2;
+}
+
+h3 {
+  font-size: $fs-h3;
+}
+
+h4 {
+  font-size: $fs-h4;
+}
+
+h5 {
+  font-size: $fs-h5;
+}
+
+h6 {
+  font-size: $fs-h6;
+}
+
+ul {
+  margin-block-start: 1rem;
+  margin-block-end: 1rem;
+  padding-inline-start: 40px;
+}
+
+.about-view {
+  .feature-image-container {
+    position: relative;
+    overflow: hidden;
+    height: 561px;
+    padding-top: calc(120% - 600px);
+  }
+
+  .feature-image-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .about {
+    .about-header {
+      margin: 0.5rem 0;
+
+      .about-name,
+      .about-title {
+        color: $primary-color;
+      }
+
+      .about-title {
+        padding-left: 0.5rem;
+        font-style: italic;
+      }
+    }
+
+    .about-body {
+      .about-paragraph {
+        margin-bottom: 1rem;
+      }
+    }
+  }
 }
 
 .card-group {
@@ -536,124 +804,37 @@ iframe,
   }
 }
 
-.about-view {
-  .feature-image-container {
-    position: relative;
-    overflow: hidden;
-    height: 561px;
-    padding-top: calc(120% - 600px);
+.contact-view {
+  .contact-image {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
   }
 
-  .feature-image-iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
+  .contact-email {
+    text-align: right;
+    padding-right: 1rem;
   }
 
-  .about {
-    .about-header {
-      margin: 0.5rem 0;
-
-      .about-name {
-        color: $primary-color;
-        font-size: 1.5rem;
-      }
-
-      .about-title {
-        color: $primary-color;
-        padding-left: 0.5rem;
-        font-size: 0.9rem;
-        font-style: italic;
-      }
-    }
-
-    .about-body {
-      .about-paragraph {
-        margin-bottom: 1rem;
-      }
-    }
+  .contact-email a {
+    font-weight: bold;
   }
-}
 
-/*-----------
-//  CONTACT
-------------------------------*/
+  .contact-email i {
+    color: rgb(0,111,192);
+  }
 
-.contact-image {
-  display: block;
-  width: 90%;
-  margin: 0 auto;
-}
-
-.contact-email {
-  text-align: right;
-  padding-right: 1rem;
-}
-
-.contact-email a {
-  font-weight: bold;
-}
-
-.contact-email i {
-  color: rgb(0,111,192);
-}
-
-.contact-form {
-  margin-top: 1rem;
-}
-
-.contact-form-component {
-  width: 100%;
-  padding: 0.5rem 1rem;
-  color: gray;
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
-  border-radius: 0.25rem;
-}
-
-.contact-form-label {
-  font-weight: bold;
-  color: gray;
-}
-
-.contact-form-input {
-  font-size: 1rem;
-}
-
-.contact-form-textarea {
-  resize: none;
-  height: 9rem;
-}
-
-.contact-form-button {
-  width: 9rem;
-  height: 2.5rem;
-  font-size: 1rem;
-  font-weight: bold;
-  color: $light-text-color;
-  background-color: $primary-color;
-  padding: 0.25rem 1rem;
-  border: none;
-  border-radius: 0.5rem;
-}
-
-.contact-form-button:hover {
-  background-color: gray;
-  transition: background-color 0.25s;
+  
 }
 
 .footer {
-	background-color: $footer-background-color;
+	background-color: $footer-bg-color;
 	width: 100%;
   padding: 3rem 4rem;
 
 	&,
 	& * {
-		color: $footer-foreground-color;
+		color: $footer-muted-color;
 	}
 
 	.footer-container {
@@ -664,7 +845,7 @@ iframe,
 	}
 
 	.footer-logo * {
-		color: $footer-accent-color;
+		color: $footer-text-color;
 	}
 
 	.footer-socials-list {
@@ -721,14 +902,14 @@ iframe,
 	}
 
 	.footer-nav-item {
-		color: $footer-accent-color;
-		font-size: 0.75rem;
+		color: $footer-text-color;
+		font-size: $fs-xs;
 		transition: color 0.25s;
 	}
 
 	.footer-nav-item:not(:last-child)::after {
 		content: "•";
-		color: $footer-foreground-color;
+		color: $footer-muted-color;
 	  margin: 0 0.5rem
 	}
 
@@ -738,7 +919,7 @@ iframe,
 	}
 
 	.footer-copyright {
-	  font-size: 0.75rem;
+	  font-size: $fs-xs;
 	  margin-top: 5rem;
 	  margin-bottom: 1rem;
 	}
@@ -753,7 +934,7 @@ iframe,
 }
 
 .header {
-  background-color: $header-background-color;
+  background-color: $header-bg-color;
   width: 100%;
 
   .header-container {
@@ -765,8 +946,7 @@ iframe,
 
   .header-logo {
     display: inline-block;
-    color: $header-foreground-color;
-    font-size: 2.25rem;
+    color: $header-text-color;
   }
 
   .header-nav-container {
@@ -777,13 +957,13 @@ iframe,
     color: $primary-color;
   	display: inline-block;
   	font-weight: bold;
-  	font-size: 0.875rem;
+  	font-size: $fs-sm;
   	padding: 0.5rem;
     transition: color 0.4s;
 
     &:not(.header-nav-toggle):hover,
     &.current {
-    	color: $header-foreground-color;
+    	color: $header-text-color;
     }
 
     &.current:hover {
@@ -794,7 +974,7 @@ iframe,
   /* style toggle after .header-nav-item so we can overwrite it */
   .header-nav-toggle {
     display: none;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 
   .header-nav {
@@ -842,6 +1022,7 @@ iframe,
 
     .header-nav-item:not(.header-nav-toggle) {
       display: block;
+      font-size: 1.25rem;
       margin: 2rem 0;
     }
 
@@ -857,7 +1038,7 @@ iframe,
       width: 100%;
       height: unset;
       z-index: 99;
-      background-color: $light-background-color-translucent;
+      background-color: $header-nav-bg-color;
       overflow-y: scroll;
       /* opacity: 0; */
       transition: transform 0.2s;
@@ -869,7 +1050,8 @@ iframe,
 .home-view {
   .home-view-section {
     padding: 3rem 4rem;
-    padding-bottom: 5rem;
+    padding-top: 2rem; // remove some top padding for .slant-top
+    padding-bottom: 4rem; // remove some bottom padding for .slant-top
 
     .home-view-section-icon {
       margin: 0 0.25rem;
@@ -916,12 +1098,11 @@ iframe,
       color: rgb(50,50,50);
 
       .home-view-column-text-heading {
-        font-size: 2.25rem;
         margin-bottom: 1rem;
       }
 
       .home-view-column-text-paragraph {
-        font-size: 1rem;
+        
       }
     }
   }
@@ -929,6 +1110,8 @@ iframe,
   @include media-width("tablet") {
     .home-view-section {
       padding: 3rem 2rem;
+      padding-top: 0; // remove some top padding for .slant-top
+      padding-bottom: 4rem; // remove some bottom padding for .slant-top
     }
   }
 }
@@ -973,23 +1156,22 @@ iframe,
 		align-self: flex-start; //bring centered flex alignment back to top
 
 		.music-video-title {
-			font-size: 1.5rem;
-  		font-style: italic;
+			font-style: italic;
 		}
 
 		.music-video-artist {
-			font-size: 1.25rem;
-		  font-weight: normal;
+			font-weight: normal;
 		  margin-left: 0.25rem;
 		}
 
 		.music-video-type {
-			font-size: 0.875rem;
 			text-align: right;
-			border-top: 1px solid gray;
-			margin-top: 0.25rem;
 			padding-top: 0.25rem;
 			padding-right: 1rem;
+			margin-top: 0.25rem;
+			border-top: 1px solid gray;
+			font-size: $fs-sm;
+			font-weight: bold;
 		}
 
 		.music-video-summary {
@@ -1039,7 +1221,7 @@ iframe,
     transition: opacity 0.5s 0.1s;
 
     & *:not(a) {
-      color: $light-text-color;
+      color: $text-light-color;
     }
   }
 
@@ -1095,85 +1277,78 @@ iframe,
 	}
 
 	&-title {
-		font-size: 4rem;
+		font-size: 3rem;
 	}
 
 	&-text {
-		
+		margin-top: 1rem;
 	}
 }
 
 .showcase {
 	background-color: $showcase-color;
-	padding: 3rem 4rem;
-	padding-bottom: 0;
+	padding-bottom: 1rem!important; // need to override base .section padding
 
 	&, & * {
 		color: white;
 	}
-}
 
-.showcase-section {
+	.showcase-title {
+		font-size: 4rem;
+	}
 
-}
+	.showcase-subtitle {
+		font-size: 1.5rem;
+	}
 
-.showcase-text {
-
-}
-
-.showcase-title {
-	font-size: 4rem;
-}
-
-.showcase-subtitle {
-	font-size: 1.5rem;
-}
-
-.showcase-text {
-	font-size: 0.8rem;
-	margin-top: 1rem;
-}
-
-.showcase-button {
-  display: inline-block;
-	background: none;
-	border: 1px solid white;
-	padding: 0.5rem 2rem;
-	margin-top: 3rem;
-	font-size: 1rem;
-	transition: 0.25s;
-}
-
-.showcase-button:hover {
-	background-color: rgb(255,255,255,0.3);
-	padding: 0.5rem 2.25rem;
-}
-
-.showcase-image-container {
-
-}
-
-.showcase-image {
-	display: block;
-  width: 100%;
-}
-
-@include media-width("mobile") {
 	.showcase-text {
-		text-align: center;
+		font-size: 0.8rem;
+		margin-top: 1rem;
 	}
 
-	.showcase-section {
-		width: 100%;
+	.showcase-button {
+	  display: inline-block;
+		background: none;
+		border: 1px solid white;
+		padding: 0.5rem 2rem;
+		margin-top: 3rem;
+		font-size: 1rem;
+		transition: background-color 0.25s, padding 0.25s;
 	}
 
-  .showcase-image-container {
-    height: 15rem;
-    overflow: hidden;
-  }
+	.showcase-button:hover {
+		background-color: rgb(255,255,255,0.3);
+		padding: 0.5rem 2.25rem;
+	}
+
+	.showcase-image-container {
+
+	}
 
 	.showcase-image {
-		margin-top: 2rem;
+		display: block;
+	  width: 100%;
+	}
+
+	@include media-width("mobile") {
+		padding-bottom: 0.75rem!important; // need to override base .section padding
+
+		.showcase-text {
+			text-align: center;
+		}
+
+		.showcase-section {
+			width: 100%;
+		}
+
+	  .showcase-image-container {
+	    height: 15rem;
+	    overflow: hidden;
+	  }
+
+		.showcase-image {
+			margin-top: 2rem;
+		}
 	}
 }
 

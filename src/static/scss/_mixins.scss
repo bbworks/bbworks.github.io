@@ -1,7 +1,15 @@
 //##_mixins.scss##
 
-@mixin focus($selector) {
-  #{$selector}:not([tabindex="-1"]):focus {
+//Create styling mixins
+@mixin default-focus($important:false) {
+  outline: 2px solid $outline-color#{if($important,!important, "")};
+  outline-offset: 0#{if($important,!important, "")};
+  text-decoration: none#{if($important,!important, "")};
+}
+
+//Create functionsl mixins
+@mixin focus($selector:null) {
+  #{if($selector,$selector,null)}:not([tabindex="-1"]):focus {
     @content;
   }
 }

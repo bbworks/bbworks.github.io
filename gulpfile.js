@@ -53,12 +53,14 @@ gulp.task('concatenate-sass',
   gulp.series('clean-concatenated-sass', ()=>{
     return gulp.src([
         //Concatenate the Sass files in a specific order:
+        path.join(sassStaticDirectory, "_builtins.scss"),
+        path.join(sassStaticDirectory, "_functions.scss"),
         path.join(sassStaticDirectory, "_variables.scss"),
         path.join(sassStaticDirectory, "_mixins.scss"),
         path.join(sassStaticDirectory, "_breakpoints.scss"),
         path.join(sassStaticDirectory, "_reset.scss"),
         path.join(sassStaticDirectory, "_utilities.scss"),
-        path.join(sassStaticDirectory, "main.scss"),
+        path.join(sassStaticDirectory, "base.scss"),
         // and everything else
         path.join(sassStaticDirectory, "/**/*.scss"),
         path.join(sassViewsDirectory, "/**/*.scss"),

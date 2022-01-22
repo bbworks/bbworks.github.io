@@ -20,3 +20,24 @@ button {
   border: none;
   cursor: pointer;
 }
+
+//Default hover & focus styles
+@include focus("a[href]") {
+  outline: none;
+  text-decoration: underline;
+}
+
+area[href],
+input:not([disabled]),
+select:not([disabled]),
+textarea:not([disabled]),
+button:not([disabled]),
+iframe,
+[tabindex],
+[contenteditable=true] {
+  &:not([tabindex="-1"]) {
+    &:focus {
+      @include default-focus();
+    }
+  }
+}

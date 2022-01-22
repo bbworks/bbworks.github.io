@@ -1,0 +1,46 @@
+// Set default styles
+* {
+  color: $text-dark-color; //Some tags (input,select,etc.) have defaults that are NOT "inherit"; must purposely reset *
+}
+
+// Set default body styles
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: 100vh;
+  background-color: $main-bg-color;
+  overflow-x: hidden;
+}
+
+// Set default typography styles
+h1 {
+  font-size: $fs-h1;
+}
+
+h2 {
+  font-size: $fs-h2;
+}
+
+h3 {
+  font-size: $fs-h3;
+}
+
+h4 {
+  font-size: $fs-h4;
+}
+
+h5 {
+  font-size: $fs-h5;
+}
+
+h6 {
+  font-size: $fs-h6;
+}
+
+ul {
+  margin-block-start: 1rem;
+  margin-block-end: 1rem;
+  padding-inline-start: 40px;
+}
