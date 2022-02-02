@@ -14,15 +14,17 @@
 	background-color: $showcase-color;
 
 	.showcase-title {
+		color: inherit;
 		font-size: 4rem;
 	}
 
 	.showcase-subtitle {
+		color: inherit;
 		font-size: 1.5rem;
 	}
 
 	.showcase-paragraph {
-		font-size: 0.8rem;
+		margin: 0 auto;
 		margin-top: 1rem;
 	}
 
@@ -59,10 +61,6 @@
 
 		.showcase-text {
 			text-align: center;
-		}
-
-		.showcase-section {
-			width: 100%;
 		}
 
 	  .showcase-image-container {

@@ -63,9 +63,14 @@
 		}
 	}
 
-	@include media-width("tablet") {
-		.music-video-wrapper-right {
+	@include media-width("tablet-wide") {
+	  .container-row {
+	    flex-direction: column;
+	  }
 
+		.music-video-description {
+			margin-left: auto;
+			margin-right: auto;
 		}
 	}
 }

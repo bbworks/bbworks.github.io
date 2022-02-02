@@ -1,9 +1,10 @@
 //##_reset.scss##
 
 //Reset all tags
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  font-family: sans-serif;
   padding: 0;
   margin: 0;
 }

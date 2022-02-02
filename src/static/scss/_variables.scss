@@ -138,8 +138,8 @@ $alert-error-light-color:    #ffbaba;
 
 
 // Site standard colors
-$primary-color:        #8b0000;
-$secondary-color:      #407899;
+$primary-color:        #356290; //#8b0000;
+$secondary-color:      #356290;
 $light-color:          $gray-100;
 $muted-light-color:    $gray-200;
 $medium-color:         $gray-500;
@@ -176,7 +176,8 @@ $section-dark-color:  $muted-light-color;
 
 
 
-// Font sizes
+// Typography
+
 $fs-h1: 3rem;     // 48px
 $fs-h2: 2.25rem;  // 36px
 $fs-h3: 2rem;     // 32px
@@ -187,6 +188,17 @@ $fs-p: 1rem;      // 16px
 $fs-sm: 0.875rem;  // 12px
 $fs-xs: 0.75rem;  // 12px
 
+$text-font-family-base: sans-serif;
+$text-font-weight-base: 400;
+$text-line-height-base: 1.7;
+$text-margin-bottom-base: 1rem;
+$text-paragraph-max-width: 70ch;
+
+$heading-color: #111111;
+$heading-font-family-base: $text-font-family-base;
+$heading-font-weight-base: 600;
+$heading-line-height-base: 1.2;
+$heading-margin-bottom-base: 0.5rem;
 
 
 // Media breakpoints
@@ -205,6 +217,6 @@ $container-max-widths: (
   "mobile": 540px, //sm
   "tablet": 720px, //md
   "tablet-wide": 960px, //lg
-  "desktop": 1140px, //xl
-  "desktop-wide": 1320px //xxl
+  // "desktop": 1140px, //xl
+  // "desktop-wide": 1320px //xxl
 ) !default;

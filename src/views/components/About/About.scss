@@ -17,24 +17,17 @@
   }
 
   .about {
-    .about-header {
-      margin: 0.5rem 0;
+    max-width: 70ch;
+    margin: 0 auto;
 
-      .about-name,
-      .about-title {
-        color: $primary-color;
-      }
-
-      .about-title {
-        padding-left: 0.5rem;
-        font-style: italic;
-      }
+    .about-name,
+    .about-title {
+      color: $primary-color;
     }
 
-    .about-body {
-      .about-paragraph {
-        margin-bottom: 1rem;
-      }
+    .about-title {
+      padding-left: 0.5rem;
+      font-style: italic;
     }
   }
 }

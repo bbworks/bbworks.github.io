@@ -9,7 +9,7 @@
     "build": "npm run build:ejs && npm run build:sass & npm run build:js & npm run build:img",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d public",
-    "start:server": "browser-sync start --server \"public/\" --files \"public/**/*.html\" \"public/css/all.min.css\" \"public/js/*\" \"public/images/**/*\" --port 5001",
+    "start:server": "browser-sync start --server \"public/\" --files \"public/**/*.html\" \"public/css/all.min.css\" \"public/js/*\" \"public/images/**/*\" --port 5001 --no-open --no-ui",
     "watch:ejs": "watch \"npm run build:ejs\" ./src/views/",
     "build:ejs": "ejs-cli -b src/views/routes \"**/*.ejs\" --out public/ -e \"partials/\"",
     "watch:sass": "onchange \"src/views/**/*.scss\" \"src/static/scss/**/*.scss\" --exclude \"src/static/scss/all.scss\" -- npm run build:sass",

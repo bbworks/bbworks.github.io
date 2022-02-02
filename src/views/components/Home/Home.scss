@@ -43,6 +43,7 @@
       justify-content: center;
       align-items: center;
       min-height: 8rem;
+      flex: 0 0 30%;
     }
 
     .home-view-column-text {
@@ -53,7 +54,7 @@
       }
 
       .home-view-column-text-paragraph {
-        
+
       }
     }
   }
@@ -62,7 +63,7 @@
     .home-view-section {
       padding: 3rem 2rem;
       padding-top: 0; // remove some top padding for .slant-top
-      padding-bottom: 4rem; // remove some bottom padding for .slant-top
+      padding-bottom: 6rem; // remove some bottom padding for .slant-top
     }
   }
 }

@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 0.5rem;
+    padding: 0.25rem 2rem;
   }
 
   .header-logo {
@@ -43,37 +43,15 @@
   }
 
   .header-nav {
-    position: relative;
     display: flex;
     align-items: center;
-    background-color: white;
-    text-align: center;
-    height: 3rem;
-
-    &::before {
-      content: "";
-      position: absolute;
-      z-index: -1; //move to the background
-      left: -4rem;
-      top: 0;
-      border-left: 4rem solid transparent;
-      border-right: 0px solid transparent;
-      border-bottom: 3rem solid white;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      z-index: -1; //move to the background
-      right: -0.5rem;
-      top: 0;
-      bottom: 0;
-      width: 0.5rem;
-      background-color: white;
-    }
   }
 
   @include media-width("mobile") {
+    .header-container {
+      padding: 0.5rem 1rem;
+    }
+
     .header-nav-container.responsive {
       & .header-nav-toggle {
         color: gray;
@@ -81,7 +59,6 @@
 
       & .header-nav {
         transform: translateX(0);
-        /* opacity: 1; */
       }
     }
 
@@ -98,14 +75,12 @@
     .header-nav {
       position: fixed;
       left: 0;
+      z-index: 999;
       display: block;
-      align-items: center;
+      text-align: center;
       width: 100%;
-      height: unset;
-      z-index: 99;
       background-color: $header-nav-bg-color;
       overflow-y: scroll;
-      /* opacity: 0; */
       transition: transform 0.2s;
       transform: translateX(100%);
     }
