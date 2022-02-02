@@ -1,9 +1,14 @@
 .about-view {
+  .container-row-column {
+    width: 100%;
+  }
+
   .feature-image-container {
-    position: relative;
-    overflow: hidden;
-    height: 561px;
-    padding-top: calc(120% - 600px);
+    width: 100%;
+  }
+
+  .feature-image {
+    width: 100%;
   }
 
   .feature-image-iframe {
@@ -28,6 +33,14 @@
     .about-title {
       padding-left: 0.5rem;
       font-style: italic;
+    }
+  }
+
+  @include media-width("tablet") {
+    .feature-image {
+      max-height: 15rem;
+      object-fit: cover;
+      object-position: center;
     }
   }
 }
