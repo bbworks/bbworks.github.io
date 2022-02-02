@@ -18,10 +18,10 @@ const publicCssFiles = path.join(publicCssDirectory, "**/*.css");
 const concatenatedCssFile = path.join(publicCssDirectory, "all.css");
 const concatenatedMinifiedCssFile = path.join(publicCssDirectory, "all.min.css");
 
-const sassDirectory = path.resolve("src/static/scss/");
-const sassViewsDirectory = path.resolve("src/views/");
 const sassStaticDirectory = path.resolve("src/static/scss/");
-const concatenatedSassFile = path.join(sassDirectory, "all.scss");
+const sassViewsDirectory = path.resolve("src/views/");
+const concatenatedSassFileName = "all.scss";
+const concatenatedSassFile = path.join(sassStaticDirectory, concatenatedSassFileName);
 
 
 //Create private functions
@@ -65,8 +65,8 @@ gulp.task('concatenate-sass',
         path.join(sassStaticDirectory, "/**/*.scss"),
         path.join(sassViewsDirectory, "/**/*.scss"),
       ])
-      .pipe(concat(concatenatedSassFile))
-      .pipe(gulp.dest(sassDirectory));
+      .pipe(concat(concatenatedSassFileName))
+      .pipe(gulp.dest(publicCssDirectory));
   })
 );
 
