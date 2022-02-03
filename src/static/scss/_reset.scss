@@ -16,10 +16,13 @@ a {
 }
 
 //Reset link styles
-button {
+@mixin button-reset {
   background: none;
   border: none;
   cursor: pointer;
+}
+button {
+  @include button-reset;
 }
 
 //Reset non-inherited colors (created by browser)

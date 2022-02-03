@@ -24,10 +24,6 @@
   padding-left: 1rem;
 }
 
-.content p, .content ul {
-  color: $bg-dark-color;
-}
-
 .logo {
   display: block;
   font-size: 2.25rem;
@@ -237,15 +233,42 @@ $slant-size: 4rem;
   }
 }
 
+@mixin bttn-hover($negative:false) {
+  padding: 0.5rem 2.25rem;
+
+  //If a normal button, darken the light bg
+  @if($negative != true) {
+    background-color: $gray-300;
+  }
+  //Otherwise, lighten the primary color
+  @else {
+    background-color: tint-color($primary-color, 40%);
+  }
+}
 .bttn {
-  color: white;
-  background-color: $primary-color;
-  padding: 0.25rem 0.5rem;
+  @include button-reset;
+
+  display: inline-block;
+  color: $primary-color;
+  background: $light-color;
+  border: 1px solid $primary-color;
+  padding: 0.5rem 2rem;
   border-radius: 0.25rem;
+  font-weight: 500;
+  transition: background-color 0.25s, padding 0.25s;
+
+  &:hover {
+    @include bttn-hover;
+  }
 
   &-negative {
-    color: black;
-    background-color: rgb(200,200,200);
+    color: $light-color;
+    background-color: $primary-color;
+    border: 1px solid $light-color;
+
+    &:hover {
+      @include bttn-hover($negative:true);
+    }
   }
 
   &[disabled] {
@@ -257,12 +280,70 @@ $slant-size: 4rem;
 @include focus(".bttn") {
   // use of !important to override buttons
   // that are also a[href] (which has a higher specificity)
+  @include bttn-hover;
   @include default-focus($important:true);
   outline-offset: 2px!important;
+}
+@include focus(".bttn-negative") {
+  // use of !important to override buttons
+  // that are also a[href] (which has a higher specificity)
+  @include bttn-hover($negative:true);
 }
 @include focus("button") {
   // use of !important to override buttons
   // that are also a[href] (which has a higher specificity)
+  @include default-focus($important:true);
+  outline-offset: 2px!important;
+}
+
+@mixin social-hover {
+  color: $medium-color;
+  transform: translateY(-10%);
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $light-color;
+  background-color: $primary-color;
+  width: 2rem;
+  height: 2rem;
+  padding: 0.5rem;
+  margin: 0 0.25rem;
+  border-radius: 50%;
+  transition:
+    color 0.25s,
+    transform .25s;
+
+  &-icon {
+    color: inherit;
+  }
+
+  &:hover {
+    @include social-hover;
+  }
+
+  &-facebook {
+	  background-color: #3B5998;
+	}
+
+	&-linkedin {
+	  background-color: #007bb5;
+	}
+
+	&-youtube {
+	  background-color: #bb0000;
+	}
+
+	&-github {
+	  background-color: #000000;
+	}
+}
+@include focus(".social") {
+  // use of !important to override buttons
+  // that are also a[href] (which has a higher specificity)
+  @include social-hover;
   @include default-focus($important:true);
   outline-offset: 2px!important;
 }
@@ -329,33 +410,15 @@ $slant-size: 4rem;
 
   &-button {
     width: 9rem;
-    height: 2.5rem;
-    font-size: 1rem;
-    font-weight: bold;
-    color: $text-light-color;
-    background-color: $primary-color;
-    padding: 0.25rem 1rem;
-    border: none;
+    font-weight: 700;
     border-radius: 0.5rem;
-  }
-
-  &-button:hover {
-    background-color: gray;
-    transition: background-color 0.25s;
   }
 }
 
 .cta-bttn {
-  display: inline-block;
-  background-color: $primary-color;
   min-width: 5rem;
-  padding: 0.5rem 1rem;
   margin-top: 1.5rem;
-  border: none;
   border-radius: 0.5rem;
-  color: $text-light-color;
-  text-align: right;
-  font-weight: bold;
 
   &-icon {
     margin-left: 0.25rem;
