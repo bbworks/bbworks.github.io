@@ -5,28 +5,26 @@
           </div>
         </section>
         <%- include("../QuestionsShowcase/QuestionsShowcase.ejs") %>
-        <div class="content">
-          <section class="section">
-            <div class="container">
-              <form class="form" action="https://formspree.io/xgenedkv" method="POST">
-                <div class="form-component">
-                  <label class="form-label" for="contact-form-name">Name</label>
-                  <input id="contact-form-name" class="form-input form-text" name="name" type="text" tabindex="1"></input>
-                </div>
-                <div class="form-component">
-                  <label class="form-label" for="contact-form-replyTo">Email</label>
-                  <input id="contact-form-replyTo" class="form-input form-text" name="_replyto" type="email" tabindex="2"></input>
-                </div>
-                <div class="form-component">
-                  <label class="form-label" for="contact-form-body">Body</label>
-                  <textarea id="contact-form-body" class="form-input form-textarea" name="body" tabindex="3"></textarea>
-                </div>
-                <input type="submit" class="bttn bttn-negative form-button" value="Send" onclick="contactForm.sendEmail();"></input>
-                <!-- <input type="hidden" name="_subject" value="bbworks.github.io"></input> -->
-                <!-- <input type="hidden" name="_next" value="/thankYou.html"></input> -->
-                <input type="text" name="_gotcha" style="display:none" />
-              </form>
-            </div>
-          </section>
-        </div>
+        <section class="section">
+          <div class="container">
+            <form class="form" action="https://formspree.io/xgenedkv" method="POST">
+              <div class="form-component">
+                <label class="form-label" for="contact-form-name">Name</label>
+                <input id="contact-form-name" class="form-input form-text" name="name" type="text" tabindex="1"></input>
+              </div>
+              <div class="form-component">
+                <label class="form-label" for="contact-form-replyTo">Email</label>
+                <input id="contact-form-replyTo" class="form-input form-text" name="_replyto" type="email" tabindex="2"></input>
+              </div>
+              <div class="form-component">
+                <label class="form-label" for="contact-form-body">Body</label>
+                <textarea id="contact-form-body" class="form-input form-textarea" name="body" tabindex="3"></textarea>
+              </div>
+              <input type="submit" class="bttn bttn-negative form-button" value="Send" onclick="contactForm.sendEmail();"></input>
+              <!-- <input type="hidden" name="_subject" value="bbworks.github.io"></input> -->
+              <!-- <input type="hidden" name="_next" value="/thankYou.html"></input> -->
+              <input type="text" name="_gotcha" style="display:none" />
+            </form>
+          </div>
+        </section>
       </main>
