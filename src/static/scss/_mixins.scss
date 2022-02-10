@@ -13,3 +13,20 @@
     @content;
   }
 }
+
+//Create aspect-ratio polyfill
+@mixin aspect-ratio($aspectRatio) {
+  @if $aspectRatio == null {
+    @error "Mixin aspect-ratio requires parameter $aspectRatio.";
+  }
+
+  &::before {
+    content: '';
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    padding-top: calc(100% / $aspectRatio);
+  }
+}

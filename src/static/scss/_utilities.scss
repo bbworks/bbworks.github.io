@@ -55,17 +55,32 @@
   text-indent: -1rem;
 }
 
-.overlay {
-  position: fixed;
+@mixin overlay($fixed:false) {
+  position: if($fixed == true, fixed, absolute);
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba($bg-light-color, 0.8);
+  z-index: 1;
+}
+
+.overlay {
+  @include overlay;
+}
+
+.modal-background {
+  @include overlay($fixed:true);
+  background: rgba($bg-dark-color, 0.8);
   z-index: 999;
   overflow-x: hidden;
   overflow-y: auto;
+
+  &-light {
+    background: rgba($bg-light-color, 0.8);
+  }
 }
+
+
 
 //-------------------------
 //  LANDING PAGE FEATURES
